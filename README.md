@@ -10,7 +10,7 @@ marketing, real estate and cleaning services.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (5 data-URI images) are inlined. |
+| `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (16 data-URI images, PNG + WebP) are inlined. Includes the "Ask ETERNA" AI assistant and the quotation builder. |
 | `robots.txt` | Allows all crawlers, points to the sitemap. |
 | `sitemap.xml` | Single-URL sitemap for `https://www.eternaholdings.com/`. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is instead of running Jekyll. |
@@ -18,6 +18,25 @@ marketing, real estate and cleaning services.
 
 The only external dependency is Google Fonts (Cormorant Garamond + Inter),
 loaded over CDN. The page degrades to Georgia / system sans if that is blocked.
+
+## The AI assistant
+
+The "Ask ETERNA" widget runs in two tiers:
+
+1. **Local engine (always on).** Intent detection, slot-filling and a dialogue
+   policy over the group's own knowledge base, running entirely in the browser.
+   It needs no server and works as-is on GitHub Pages.
+2. **Live model (optional).** If a `POST /api/chat` endpoint is configured and
+   reachable, replies come from it instead. When it is unavailable — as on
+   static hosting — the widget falls back silently to the local engine, so the
+   visitor never sees an error.
+
+To enable the live tier you need a host that can run server code (Pages cannot).
+Point the site at a backend exposing `POST /api/chat` that accepts
+`{"messages":[...]}` and returns `{"reply":"..."}`.
+
+The enquiry form behaves the same way: it posts to the `data-endpoint` on the
+form if one is set, and otherwise opens a pre-filled email so nothing is lost.
 
 ## Publishing
 
