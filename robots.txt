@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.eternaholdings.com/sitemap.xml
+Sitemap: https://ester098.github.io/eterna2007/sitemap.xml

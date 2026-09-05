@@ -13,7 +13,7 @@ marketing, real estate and cleaning services.
 | `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (20 data-URI images: JPEG, PNG and WebP) are inlined. Includes the "Ask ETERNA" AI assistant and the quotation builder. |
 | `og-image.png` | Social preview image, referenced by `og:image` and by the Organization schema logo. |
 | `robots.txt` | Allows all crawlers, points to the sitemap. |
-| `sitemap.xml` | Single-URL sitemap for `https://www.eternaholdings.com/`. |
+| `sitemap.xml` | Single-URL sitemap for the live site URL. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is instead of running Jekyll. |
 | `.github/workflows/pages.yml` | Deploys the site to GitHub Pages on every push to `main`. |
 
@@ -52,19 +52,30 @@ can also trigger it by hand from the **Actions** tab via **Run workflow**.
 
 Do not commit directly to `gh-pages` — the workflow overwrites it on every run.
 
-### Custom domain
+### Site URL
 
-`index.html` declares `https://www.eternaholdings.com` as its canonical and
-Open Graph URL. To serve from that domain:
+The site's own URLs — the canonical link, the `og:` tags, the JSON-LD `@id`
+values, `sitemap.xml` and `robots.txt` — all point at
+`https://ester098.github.io/eterna2007/`, which is where the site is served
+from. The `info@eternaholdings.com` contact address is unrelated to hosting and
+is left as-is.
 
-1. Add a `CNAME` file at the repository root containing `www.eternaholdings.com`.
-2. Point a DNS `CNAME` record for `www` at `ester098.github.io`.
-   (The workflow copies a root `CNAME` file into the deployed site automatically.)
+Note that `robots.txt` is only honoured at a domain root
+(`https://ester098.github.io/robots.txt`), so the copy in this project path is
+not read by crawlers. It becomes effective on a custom domain.
+
+### Moving to a custom domain
+
+To serve from `www.eternaholdings.com` later:
+
+1. Point a DNS `CNAME` record for `www` at `ester098.github.io`.
+2. Add a `CNAME` file at the repository root containing `www.eternaholdings.com`.
+   (The workflow copies a root `CNAME` file into the deployed site automatically —
+   which matters here, because the workflow force-pushes `gh-pages` on every run
+   and would otherwise wipe a `CNAME` that GitHub wrote there.)
 3. In **Settings → Pages**, enter the custom domain and enable **Enforce HTTPS**.
-
-Until then the site is reachable at the `github.io` URL above. Note that
-`robots.txt` is only honoured by crawlers when served from a domain root, so it
-takes effect once the custom domain is live.
+4. Swap `https://ester098.github.io/eterna2007` for `https://www.eternaholdings.com`
+   in `index.html`, `sitemap.xml` and `robots.txt`.
 
 ## Editing
 
