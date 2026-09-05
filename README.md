@@ -10,12 +10,24 @@ marketing, real estate and cleaning services.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (20 data-URI images: JPEG, PNG and WebP) are inlined. Includes the "Ask ETERNA" AI assistant and the quotation builder. |
+| `index.html` | The landing page: markup, CSS and JavaScript inline (~170 KB). Includes the "Ask ETERNA" AI assistant and the quotation builder. |
+| `images/` | The 20 photographs and logos, as real files (JPEG + WebP pairs, PNG logos). |
 | `og-image.png` | Social preview image, referenced by `og:image` and by the Organization schema logo. |
 | `robots.txt` | Allows all crawlers, points to the sitemap. |
 | `sitemap.xml` | Single-URL sitemap for the live site URL. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is instead of running Jekyll. |
 | `.github/workflows/pages.yml` | Deploys the site to GitHub Pages on every push to `main`. |
+
+Imagery lives in `images/` rather than inline. The page previously carried every
+photograph as a base64 data URI — 2.7 MB of HTML, 94% of it images, with 1.5 MB in a
+single inline script — so a phone had to download the lot before the page became
+usable. As files they download in parallel, below-the-fold ones load lazily, and the
+browser caches them separately from the markup. On a Fast 3G profile with a 4x slower
+CPU, DOMContentLoaded went from 13.9s to 1.8s.
+
+`asset(name, ext)` in the page script resolves an image name to `images/<name>.<ext>`.
+It still honours a `window.ETERNA_IMG` map if one is present, so a single-file build
+remains possible, but no such map ships now.
 
 The only external dependency is Google Fonts (Cormorant Garamond + Inter),
 loaded over CDN. The stylesheet is loaded non-blocking (`media="print"` swapped to
