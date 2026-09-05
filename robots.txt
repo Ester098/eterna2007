@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ester098.github.io/eterna2007/sitemap.xml
