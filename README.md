@@ -21,13 +21,14 @@ loaded over CDN. The page degrades to Georgia / system sans if that is blocked.
 
 ## Publishing
 
-The site deploys automatically: every push to `main` runs
-`.github/workflows/pages.yml`, which enables GitHub Pages if it is not already
-on, then uploads and deploys the repository root. You can also trigger it by
-hand from the **Actions** tab via **Run workflow**.
+The site is served by GitHub Pages from the `gh-pages` branch.
 
-If the first run fails on the Pages step, open **Settings → Pages** and set
-**Source** to **GitHub Actions**, then re-run the workflow.
+`main` is the source of truth — edit files there. Every push to `main` runs
+`.github/workflows/pages.yml`, which assembles the site files and force-pushes
+them to `gh-pages`; GitHub Pages then rebuilds and deploys automatically. You
+can also trigger it by hand from the **Actions** tab via **Run workflow**.
+
+Do not commit directly to `gh-pages` — the workflow overwrites it on every run.
 
 ### Custom domain
 
@@ -36,6 +37,7 @@ Open Graph URL. To serve from that domain:
 
 1. Add a `CNAME` file at the repository root containing `www.eternaholdings.com`.
 2. Point a DNS `CNAME` record for `www` at `ester098.github.io`.
+   (The workflow copies a root `CNAME` file into the deployed site automatically.)
 3. In **Settings → Pages**, enter the custom domain and enable **Enforce HTTPS**.
 
 Until then the site is reachable at the `github.io` URL above. Note that
