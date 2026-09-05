@@ -18,7 +18,17 @@ marketing, real estate and cleaning services.
 | `.github/workflows/pages.yml` | Deploys the site to GitHub Pages on every push to `main`. |
 
 The only external dependency is Google Fonts (Cormorant Garamond + Inter),
-loaded over CDN. The page degrades to Georgia / system sans if that is blocked.
+loaded over CDN. The stylesheet is loaded non-blocking (`media="print"` swapped to
+`all` on load), so a slow or unreachable `fonts.googleapis.com` cannot hold up the
+first paint — the page renders immediately in Georgia / system sans and swaps when
+the webfonts arrive. Loading it render-blocking meant a phone that could not reach
+Google Fonts showed a blank screen until the request timed out.
+
+The intro curtain is an opaque full-screen overlay that also locks scrolling, and
+only the main script at the end of the document lifts it. A small failsafe near the
+top of the body clears it unconditionally after 6s (the normal sequence takes ~3s)
+so a script failure can never leave a visitor on a blank panel, and a `<noscript>`
+rule hides it outright when JavaScript is off.
 `og-image.png` is the one asset that is not inlined — social scrapers cannot read
 data URIs, so it is served as a file at the site root.
 
