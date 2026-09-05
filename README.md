@@ -10,7 +10,8 @@ marketing, real estate and cleaning services.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (16 data-URI images, PNG + WebP) are inlined. Includes the "Ask ETERNA" AI assistant and the quotation builder. |
+| `index.html` | The complete landing page. Self-contained: all CSS, JavaScript and imagery (20 data-URI images: JPEG, PNG and WebP) are inlined. Includes the "Ask ETERNA" AI assistant and the quotation builder. |
+| `og-image.png` | Social preview image, referenced by `og:image` and by the Organization schema logo. |
 | `robots.txt` | Allows all crawlers, points to the sitemap. |
 | `sitemap.xml` | Single-URL sitemap for `https://www.eternaholdings.com/`. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is instead of running Jekyll. |
@@ -18,6 +19,8 @@ marketing, real estate and cleaning services.
 
 The only external dependency is Google Fonts (Cormorant Garamond + Inter),
 loaded over CDN. The page degrades to Georgia / system sans if that is blocked.
+`og-image.png` is the one asset that is not inlined — social scrapers cannot read
+data URIs, so it is served as a file at the site root.
 
 ## The AI assistant
 
