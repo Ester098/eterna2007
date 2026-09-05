@@ -10,7 +10,7 @@ marketing, real estate and cleaning services.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The landing page: markup, CSS and JavaScript inline (~170 KB). Includes the "Ask ETERNA" AI assistant and the quotation builder. |
+| `index.html` | The landing page: markup, CSS and JavaScript inline (~255 KB). Includes the "Ask ETERNA" AI assistant and the quotation builder. |
 | `images/` | The 20 photographs and logos, as real files (JPEG + WebP pairs, PNG logos). |
 | `og-image.png` | Social preview image, referenced by `og:image` and by the Organization schema logo. |
 | `robots.txt` | Allows all crawlers, points to the sitemap. |
@@ -36,11 +36,11 @@ first paint — the page renders immediately in Georgia / system sans and swaps 
 the webfonts arrive. Loading it render-blocking meant a phone that could not reach
 Google Fonts showed a blank screen until the request timed out.
 
-The intro curtain is an opaque full-screen overlay that also locks scrolling, and
-only the main script at the end of the document lifts it. A small failsafe near the
-top of the body clears it unconditionally after 6s (the normal sequence takes ~3s)
-so a script failure can never leave a visitor on a blank panel, and a `<noscript>`
-rule hides it outright when JavaScript is off.
+The opening veil is an opaque full-screen panel that only the main script at the end
+of the document takes down. A small failsafe near the top of the body clears it
+unconditionally after 6s (the normal opening takes ~1s) so a script failure can never
+leave a visitor on a blank panel, and a `<noscript>` rule in the head hides it
+outright when JavaScript is off.
 `og-image.png` is the one asset that is not inlined — social scrapers cannot read
 data URIs, so it is served as a file at the site root.
 

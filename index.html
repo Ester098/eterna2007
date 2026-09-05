@@ -10,13 +10,13 @@
 <link rel="canonical" href="https://ester098.github.io/eterna2007/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ETERNA Holdings">
-<meta property="og:title" content="ETERNA Holdings — One relationship. Five companies. One standard of delivery.">
+<meta property="og:title" content="ETERNA Holdings — One relationship. Five companies. One standard.">
 <meta property="og:description" content="ETERNA Holdings Limited runs 5 companies in Dar es Salaam: freight, clearing and warehousing, sourcing, contracting and export, brand, campaigns and digital, acquisition, development and management, commercial and facilities cleaning. One relationship, one named contact, one standard of delivery.">
 <meta property="og:url" content="https://ester098.github.io/eterna2007/">
 <meta property="og:locale" content="en_TZ">
 <meta property="og:image" content="https://ester098.github.io/eterna2007/og-image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ETERNA Holdings — One relationship. Five companies. One standard of delivery.">
+<meta name="twitter:title" content="ETERNA Holdings — One relationship. Five companies. One standard.">
 <meta name="twitter:description" content="ETERNA Holdings Limited runs 5 companies in Dar es Salaam: freight, clearing and warehousing, sourcing, contracting and export, brand, campaigns and digital, acquisition, development and management, commercial and facilities cleaning. One relationship, one named contact, one standard of delivery.">
 <link rel="preload" as="image" href="images/eterna-logo.png">
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -29,7 +29,8 @@
      Georgia / system-sans fallbacks and swaps when the webfonts arrive. -->
 <link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<style>/* ============================================================
+<style>
+/* ============================================================
    ETERNA HOLDINGS — design system
    Brand: Navy #0B2D5B · Gold #C9A227 (client asset sheet)
    Dark, single-theme by intent: a fixed corporate identity that must
@@ -383,7 +384,13 @@ h3{font-size:var(--t-md);line-height:1.24}
 .eco__uses{display:grid;gap:7px}
 .eco__uses li{font-size:var(--t-sm);padding-left:18px;position:relative}
 .eco__uses li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--accent)}
-.eco__panel .btn{margin-top:var(--s4)}
+.eco__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s4)}
+.eco__cta .btn{margin-top:0}
+/* A tag can also be a way in — same pill, now pressable. */
+button.tag{background:none;font-family:inherit;cursor:pointer;min-height:44px;padding-inline:15px;
+  display:inline-flex;align-items:center;
+  transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
+button.tag:hover{border-color:color-mix(in srgb,var(--accent) 60%,transparent);color:var(--text);transform:translateY(-1px)}
 
 /* --- Logistics & Procurement spread -------------------------------
    A wide plate the copy card overlaps. Twelve columns on desktop so the
@@ -695,8 +702,8 @@ h3{font-size:var(--t-md);line-height:1.24}
   transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
 .chat-open:hover{transform:translateY(-2px);box-shadow:0 20px 50px -14px rgba(201,162,39,.95)}
 .chat-open[hidden]{display:none}
-.chat{position:fixed;right:20px;bottom:20px;z-index:82;width:min(410px,calc(100vw - 40px));
-  max-height:min(640px,calc(100vh - 40px));display:flex;flex-direction:column;overflow:hidden;
+.chat{position:fixed;right:20px;bottom:20px;z-index:82;width:min(468px,calc(100vw - 40px));
+  max-height:min(720px,calc(100vh - 40px));display:flex;flex-direction:column;overflow:hidden;
   border:1px solid var(--line-2);border-radius:var(--r-lg);background:rgba(5,25,47,.97);
   backdrop-filter:blur(20px);box-shadow:0 40px 100px -30px rgba(0,0,0,.95)}
 .chat[hidden]{display:none}
@@ -752,41 +759,32 @@ h3{font-size:var(--t-md);line-height:1.24}
   .chat{right:10px;left:10px;bottom:10px;width:auto;max-height:calc(100vh - 20px)}
 }
 
-/* --- opening reveal ---------------------------------------------------
-   Two navy panels part like doors over a held wordmark. It runs once per
-   session, can be skipped, and never runs under reduced motion — the page
-   is fully rendered and interactive underneath the whole time. */
-.curtain{position:fixed;inset:0;z-index:200;pointer-events:none}
-.curtain[hidden]{display:none}
-.curtain__leaf{position:absolute;top:0;bottom:0;width:50.5%;background:linear-gradient(180deg,var(--bg-3),var(--bg-2));
-  will-change:transform;transform:translateX(0)}
-.curtain__leaf--l{left:0;border-right:1px solid var(--line-gold)}
-.curtain__leaf--r{right:0;border-left:1px solid var(--line-gold)}
-.curtain__mark{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px}
-.curtain__mark img{width:min(280px,58vw);height:auto;opacity:0}
-.curtain__line{margin-top:18px;font-size:var(--t-label);letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold-lift);opacity:0}
-.curtain__skip{position:absolute;right:20px;bottom:20px;pointer-events:auto;background:none;border:0;
-  color:var(--muted);font-size:var(--t-label);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
-  padding:12px 16px;min-height:44px;opacity:0}
-.curtain__skip:hover{color:var(--text)}
-.curtain.is-playing .curtain__mark img{animation:markIn .9s var(--ease) .15s forwards}
-.curtain.is-playing .curtain__line{animation:markIn .9s var(--ease) .45s forwards}
-.curtain.is-playing .curtain__skip{animation:markIn .5s var(--ease) .9s forwards}
-@keyframes markIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.curtain.is-opening .curtain__mark{animation:markOut .5s var(--ease) forwards}
-@keyframes markOut{to{opacity:0;transform:scale(.97)}}
-.curtain.is-opening .curtain__leaf--l{transition:transform 1.15s cubic-bezier(.65,0,.2,1);transform:translateX(-100%)}
-.curtain.is-opening .curtain__leaf--r{transition:transform 1.15s cubic-bezier(.65,0,.2,1);transform:translateX(100%)}
-/* The welcome line rides in behind the opening doors. */
-.welcome{position:fixed;inset:0;z-index:199;display:grid;place-items:center;text-align:center;
-  padding:24px;pointer-events:none;opacity:0}
-.welcome[hidden]{display:none}
-.welcome b{display:block;font-family:var(--display);font-weight:300;color:var(--text);
-  font-size:clamp(28px,5vw,54px);letter-spacing:-.015em}
-.welcome span{display:block;margin-top:12px;font-size:var(--t-sm);color:var(--body);max-width:36ch}
-.welcome.is-on{animation:welcome 1.9s var(--ease) forwards}
-@keyframes welcome{0%{opacity:0;transform:translateY(12px)}22%{opacity:1;transform:none}72%{opacity:1}100%{opacity:0}}
+/* --- opening: the page rises into place ---------------------------
+   The content lifts from below with a touch of depth, rather than panels
+   parting. Short on purpose — an entrance nobody has to wait through.
+   Nothing is gated behind it: the page is rendered and interactive from
+   the first frame, and the animation only moves what is already there. */
+.veil{position:fixed;inset:0;z-index:200;pointer-events:none;background:var(--bg-2)}
+.veil[hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .rise-in{animation:riseIn .92s cubic-bezier(.16,1,.3,1) both}
+  .js .veil{animation:veilOut .58s cubic-bezier(.4,0,.2,1) .06s both}
+  @keyframes riseIn{
+    from{opacity:0;transform:translate3d(0,44px,0) scale(.985)}
+    to{opacity:1;transform:none}
+  }
+  @keyframes veilOut{to{opacity:0}}
+  /* Depth: the further back a layer sits, the further it travels. */
+  .js .rise-in--back{animation-duration:1.05s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+  .js .rise-in--1{animation-delay:.04s}
+  .js .rise-in--2{animation-delay:.12s}
+  .js .rise-in--3{animation-delay:.20s}
+  .js .rise-in--4{animation-delay:.28s}
+}
+@media (prefers-reduced-motion:reduce){
+  .veil{display:none}
+  .rise-in{animation:none}
+}
 
 /* --- ecosystem motion -------------------------------------------------
    Selecting a company promotes it and lets the others recede. Transform
@@ -896,43 +894,357 @@ h3{font-size:var(--t-md);line-height:1.24}
   .q-print-root .q__nav,.q-print-root .q__bar,.q-print-root h3,.q-print-root > p{display:none!important}
   .doc{border-radius:0;padding:0;margin:0}
 }
+
+/* --- the industry stage -------------------------------------------
+   Clicking a company does not scroll you somewhere. It opens that part
+   of the group over the page, expanding from the node you pressed, so
+   the movement itself says "you are entering this business". */
+.ind-stage{position:fixed;inset:0;z-index:120;display:none}
+.ind-stage.is-open{display:block}
+.ind-stage__scrim{position:absolute;inset:0;background:rgba(2,10,22,.72);backdrop-filter:blur(10px);opacity:0;
+  transition:opacity .5s var(--ease)}
+.ind-stage.is-in .ind-stage__scrim{opacity:1}
+.ind-stage__sheet{
+  position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;
+  background:
+    radial-gradient(78% 46% at 20% 0%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 42%, var(--bg-2) 100%);
+  opacity:0;transform:translate3d(0,40px,0) scale(.965);transform-origin:var(--ox,50%) var(--oy,50%);
+  transition:opacity .5s var(--ease),transform .62s cubic-bezier(.16,1,.3,1);
+}
+.ind-stage.is-in .ind-stage__sheet{opacity:1;transform:none}
+.ind-stage__in{max-width:var(--maxw);margin-inline:auto;padding:clamp(64px,9vh,104px) var(--gut) clamp(72px,10vh,120px)}
+
+.ind-back{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px 10px 14px;
+  border:1px solid var(--line-2);border-radius:var(--r-pill);background:var(--surface);
+  color:var(--body);font-size:var(--t-sm);font-weight:500;cursor:pointer;
+  transition:border-color .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
+.ind-back:hover{border-color:var(--accent);color:var(--text);transform:translateX(-3px)}
+.ind-back svg{transition:transform .25s var(--ease)}
+.ind-back:hover svg{transform:translateX(-3px)}
+
+.ind-head{margin-top:var(--s5);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(28px,4vw,64px);align-items:end}
+.ind-head h2{font-size:clamp(36px,6.4vw,76px);letter-spacing:-.028em;margin-top:14px}
+.ind-head h2:focus{outline:none}
+.ind-stage__sheet:focus{outline:none}
+.ind-head .lead{margin-top:var(--s3);font-size:var(--t-lead)}
+.ind-shot{border-radius:var(--r-lg);overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
+.ind-shot img{width:100%;height:clamp(180px,24vw,268px);object-fit:cover;display:block}
+
+.ind-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,64px);
+  align-items:start;margin-top:var(--s5)}
+.ind-block h3{font-family:var(--sans);font-size:var(--t-label);font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-text)}
+.ind-block > *:not(h3){margin-top:var(--s3)}
+
+/* problem → answer, the part that does the persuading */
+.ind-prob{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.ind-prob > div{padding:var(--s3);border:1px solid var(--line);border-radius:var(--r);
+  background:var(--surface);transition:border-color .35s var(--ease),transform .35s var(--ease)}
+.ind-prob > div:hover{border-color:color-mix(in srgb,var(--accent) 52%,transparent);transform:translateY(-2px)}
+.ind-prob p{font-size:var(--t-sm);line-height:1.6}
+/* .q and .a belong to the quotation builder — these need their own names. */
+.ind-prob .ind-q{color:var(--text);font-weight:500}
+.ind-prob .ind-a{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:var(--body)}
+.ind-prob .ind-a::before{content:"";display:inline-block;width:14px;height:1px;background:var(--accent);
+  vertical-align:middle;margin-right:9px}
+
+.ind-list{display:grid;gap:9px}
+.ind-list li{font-size:var(--t-sm);color:var(--body);padding-left:19px;position:relative;line-height:1.6}
+.ind-list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--accent)}
+
+.ind-act{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ind-act .btn--primary{background:linear-gradient(135deg,
+  color-mix(in srgb,var(--accent) 72%, #fff 28%), var(--accent));color:#08131F;
+  box-shadow:0 10px 30px -12px color-mix(in srgb,var(--accent) 80%, transparent)}
+.ind-act__note{font-size:var(--t-label);color:var(--muted);max-width:34ch;line-height:1.55}
+
+@media (max-width:900px){
+  .ind-head,.ind-grid{grid-template-columns:minmax(0,1fr)}
+  .ind-head{gap:var(--s4)}
+  .ind-act .btn{width:100%}
+}
+
+/* --- start a conversation: three ways in --------------------------- */
+.ways{position:fixed;inset:0;z-index:130;display:none;place-items:center;padding:var(--gut)}
+.ways.is-open{display:grid}
+.ways__scrim{position:absolute;inset:0;background:rgba(2,10,22,.74);backdrop-filter:blur(12px);opacity:0;
+  transition:opacity .4s var(--ease)}
+.ways.is-in .ways__scrim{opacity:1}
+.ways__panel{position:relative;width:min(880px,100%);max-height:calc(100vh - 2*var(--gut));overflow-y:auto;
+  border:1px solid var(--line-2);border-radius:var(--r-lg);background:rgba(6,28,52,.96);
+  backdrop-filter:blur(18px);padding:clamp(28px,4vw,46px);
+  opacity:0;transform:translate3d(0,26px,0) scale(.98);
+  transition:opacity .42s var(--ease),transform .52s cubic-bezier(.16,1,.3,1)}
+.ways.is-in .ways__panel{opacity:1;transform:none}
+.ways__x{position:absolute;top:14px;right:14px;width:40px;height:40px;display:grid;place-items:center;
+  border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:21px;cursor:pointer;
+  transition:background-color .25s var(--ease),color .25s var(--ease)}
+.ways__x:hover{background:var(--surface-2);color:var(--text)}
+.ways__panel h2{font-size:clamp(26px,3.4vw,38px);margin-top:12px}
+.ways__panel > p{margin-top:12px;font-size:var(--t-sm);color:var(--body);max-width:52ch}
+.ways__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:var(--s4)}
+.way{display:flex;flex-direction:column;gap:10px;text-align:left;cursor:pointer;min-height:150px;text-decoration:none;font-family:inherit;
+  padding:var(--s3);border:1px solid var(--line);border-radius:var(--r);background:rgba(0,0,0,.2);
+  color:inherit;text-decoration:none;
+  transition:border-color .3s var(--ease),background-color .3s var(--ease),transform .3s var(--ease)}
+.way:hover{border-color:var(--gold);background:rgba(201,162,39,.07);transform:translateY(-3px)}
+.way__n{font-size:var(--t-label);font-weight:700;letter-spacing:.16em;color:var(--gold)}
+.way b{font-size:var(--t-lead);font-weight:600;color:var(--text);font-family:var(--display);
+  font-size:23px;letter-spacing:-.01em}
+.way span{font-size:var(--t-sm);color:var(--body);line-height:1.55}
+.way__go{margin-top:auto;font-size:var(--t-label);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-lift)}
+.ways__foot{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px var(--s4);font-size:var(--t-sm);color:var(--body)}
+.ways__foot a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.ways__foot a:hover{border-bottom-color:var(--gold)}
+@media (max-width:760px){ .ways__list{grid-template-columns:1fr} .way{min-height:0} }
+
+/* the matcher result now explains itself */
+.result__why b{color:var(--accent-text)}
+.result__read{margin-top:12px;padding:14px 16px;border-left:2px solid var(--accent);
+  background:color-mix(in srgb,var(--accent) 7%, transparent);border-radius:0 var(--r) var(--r) 0;
+  font-size:var(--t-sm);line-height:1.6;color:var(--body)}
+
+/* ==================================================================
+   ETERNA LIVE — one operational layer, five configurations
+   Every business is drawn with these same components. The colour is the
+   only thing that changes, and it arrives as --accent from the caller.
+   ================================================================== */
+.lv{border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:var(--r-lg);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 9%,transparent),var(--surface));
+  padding:var(--s3);position:relative;overflow:hidden}
+.lv::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.7}
+.lv__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.lv__noun{font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+.lv__ref{font-family:var(--display);font-size:clamp(23px,3vw,30px);color:var(--text);margin-top:4px;
+  letter-spacing:.01em}
+.lv__flag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  border:1px solid var(--line-2);border-radius:var(--r-pill);padding:6px 11px;color:var(--muted);
+  background:rgba(255,255,255,.04);flex:none}
+.lv__flag--real{border-color:color-mix(in srgb,var(--accent) 50%,transparent);color:var(--accent-text)}
+.lv__facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--s2);margin-top:var(--s3)}
+.lv__facts dt{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.lv__facts dd{margin-top:5px;font-size:var(--t-sm);color:var(--text);line-height:1.45}
+.lv__stage-label{margin-top:var(--s3);font-size:var(--t-label);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent-text)}
+
+/* the track: the same six-beat shape whatever the business */
+.lv-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;margin-top:12px;
+  list-style:none}
+.lv-track__step{display:grid;gap:9px;position:relative;min-width:0}
+.lv-track__dot{height:3px;border-radius:2px;background:var(--line);display:block;position:relative;
+  overflow:hidden}
+.lv-track__step.is-done .lv-track__dot{background:color-mix(in srgb,var(--accent) 62%,transparent)}
+.lv-track__step.is-now .lv-track__dot{background:var(--accent)}
+@media (prefers-reduced-motion:no-preference){
+  .lv-track__step.is-now .lv-track__dot::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);
+    animation:lvPulse 2.4s linear infinite}
+  @keyframes lvPulse{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+}
+.lv-track__name{font-size:10px;letter-spacing:.06em;color:var(--muted);line-height:1.3;
+  overflow-wrap:anywhere}
+.lv-track__step.is-now .lv-track__name{color:var(--text);font-weight:600}
+.lv-track__step.is-done .lv-track__name{color:var(--body)}
+.lv__note{margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line);
+  font-size:var(--t-micro);line-height:1.6;color:var(--muted)}
+
+/* the action rail */
+.lv-acts__box h3{font-family:var(--sans);font-size:var(--t-label);font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-text)}
+.lv-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:10px;margin-top:var(--s3)}
+.lv-act{display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer;min-height:60px;
+  padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);
+  font-family:inherit;color:var(--body);
+  transition:border-color .28s var(--ease),background-color .28s var(--ease),
+             color .28s var(--ease),transform .28s var(--ease)}
+.lv-act:hover{border-color:color-mix(in srgb,var(--accent) 62%,transparent);color:var(--text);
+  background:color-mix(in srgb,var(--accent) 9%,transparent);transform:translateY(-2px)}
+.lv-act--lead{border-color:color-mix(in srgb,var(--accent) 52%,transparent);
+  background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--text)}
+.lv-act__n{font-size:10px;letter-spacing:.14em;font-weight:700;color:var(--accent-text);flex:none}
+.lv-act__label{font-size:var(--t-sm);font-weight:500;line-height:1.35}
+
+/* the progressive request flow */
+.lv-flow{border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:var(--r-lg);
+  background:var(--surface);padding:var(--s3)}
+.lv-flow__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lv-flow__title{font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+.lv-flow__count{font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lv-flow__known{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.lv-flow__chip{font-size:var(--t-micro);color:var(--body);border:1px solid var(--line);
+  border-radius:var(--r-pill);padding:5px 11px;overflow-wrap:anywhere}
+.lv-flow__chip b{color:var(--muted);font-weight:600;margin-right:7px;text-transform:uppercase;
+  letter-spacing:.1em;font-size:10px}
+.lv-flow__ask{margin-top:var(--s3);font-family:var(--display);font-size:clamp(20px,2.6vw,27px);
+  color:var(--text);line-height:1.25;outline:none}
+.lv-flow__opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s2)}
+.lv-flow__opt{min-height:44px;padding:11px 17px;border:1px solid var(--line-2);border-radius:var(--r-pill);
+  background:none;font-family:inherit;font-size:var(--t-sm);color:var(--body);cursor:pointer;
+  transition:border-color .25s var(--ease),color .25s var(--ease),background-color .25s var(--ease)}
+.lv-flow__opt:hover{border-color:var(--accent);color:var(--text);
+  background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.lv-flow__opt--sm{min-height:36px;padding:8px 14px;font-size:var(--t-micro);border-color:var(--line)}
+.lv-flow__opts--sug{margin-top:10px}
+.lv-flow__row{display:flex;gap:8px;margin-top:var(--s2);flex-wrap:wrap}
+.lv-flow__input{flex:1 1 200px;min-width:0;min-height:48px;padding:13px 16px;border-radius:var(--r);
+  border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text);
+  font-family:inherit;font-size:var(--t-base)}
+.lv-flow__input:focus{outline:none;border-color:var(--accent)}
+.lv-flow__go{min-height:48px;padding:13px 24px;border-radius:var(--r);border:0;cursor:pointer;
+  background:var(--accent);color:#06121F;font-family:inherit;font-weight:600;font-size:var(--t-sm)}
+.lv-flow__back{margin-top:14px;background:none;border:0;padding:8px 0;min-height:36px;cursor:pointer;
+  font-family:inherit;font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lv-flow__back:hover{color:var(--text)}
+.lv-flow__done-h{margin-top:var(--s3);font-family:var(--display);font-size:clamp(20px,2.6vw,27px);color:var(--text)}
+.lv-flow__warn{margin-top:var(--s3);padding:13px 15px;border-left:2px solid var(--accent);
+  background:color-mix(in srgb,var(--accent) 7%,transparent);border-radius:0 var(--r) var(--r) 0;
+  font-size:var(--t-micro);line-height:1.65;color:var(--body)}
+.lv-flow__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s3)}
+.lv-note{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:var(--s3)}
+.lv-note__t{font-family:var(--display);font-size:var(--t-md);color:var(--text)}
+.lv-note__b{margin-top:9px;font-size:var(--t-sm);line-height:1.6;color:var(--body)}
+.lv-note__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s3)}
+
+@media (max-width:620px){
+  .lv-track{grid-auto-flow:row;grid-auto-columns:auto;gap:11px}
+  .lv-track__step{grid-template-columns:38px minmax(0,1fr);align-items:center;gap:12px}
+  .lv-track__name{font-size:var(--t-micro)}
+}
+
+/* ==================================================================
+   ENTERING A BRANCH
+   The signature move. Press a company and the tree acknowledges it: the
+   other branches fall back into depth and soften, the diagram itself
+   pulls away, and the pressed node detaches and expands until it is the
+   screen. The business environment then emerges from inside it. Nothing
+   scrolls; the movement is the navigation.
+   ================================================================== */
+.eco__map{perspective:1100px}
+.eco__map,.eco__panel{transition:transform .55s var(--ease),filter .55s var(--ease),opacity .4s var(--ease)}
+#eco.is-entering .eco__map{transform:scale(.9);filter:blur(3px) saturate(.8)}
+#eco.is-entering .eco__panel{opacity:0;transform:translateY(14px)}
+#eco.is-entering .eco__hub{opacity:0;transform:translate(-50%,-50%) scale(.72)}
+#eco.is-entering .eco__wire{opacity:.06}
+/* Siblings recede into the background rather than simply fading. */
+#eco.is-entering .eco__node{transition:transform .5s var(--ease),opacity .4s var(--ease)}
+#eco.is-entering .eco__node:not(.is-launch){opacity:.08;
+  transform:translate(-50%,-50%) scale(.68) translateZ(-140px)}
+/* The pressed node hands over to the morph, so it steps aside silently. */
+#eco.is-entering .eco__node.is-launch{opacity:0;transition:opacity .12s linear}
+
+.morph-veil{position:fixed;inset:0;z-index:117;pointer-events:none;background:var(--bg-2);opacity:0;
+  transition:opacity .42s var(--ease)}
+.morph-veil.is-on{opacity:.86}
+.morph{position:fixed;z-index:118;border-radius:50%;pointer-events:none;
+  border:1px solid color-mix(in srgb,var(--accent) 70%,transparent);
+  background:
+    radial-gradient(120% 120% at 50% 22%, color-mix(in srgb,var(--accent) 46%,transparent) 0%, transparent 68%),
+    linear-gradient(180deg,var(--bg-3),var(--bg));
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 26%,transparent),
+             0 30px 90px -20px color-mix(in srgb,var(--accent) 40%,transparent);
+  will-change:transform,opacity;
+  transition:transform .6s cubic-bezier(.66,0,.28,1),opacity .34s var(--ease)}
+.morph.is-open{transform:scale(var(--k,1))}
+.morph.is-gone{opacity:0}
+.morph[hidden]{display:none}
+
+/* The name travels with the camera: it is the one piece of the node that
+   stays legible while the circle becomes the screen. */
+.morph__title{position:fixed;inset:0;z-index:119;display:grid;place-items:center;text-align:center;
+  padding:var(--gut);pointer-events:none;opacity:0;transform:scale(.82) translateY(10px);
+  transition:opacity .3s var(--ease),transform .55s cubic-bezier(.16,1,.3,1)}
+.morph__title.is-on{opacity:1;transform:none}
+.morph__title[hidden]{display:none}
+.morph__title b{display:block;font-family:var(--display);font-weight:300;color:var(--text);
+  font-size:clamp(34px,7.2vw,86px);letter-spacing:-.03em;line-height:1}
+.morph__title span{display:block;margin-top:16px;font-size:var(--t-label);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--accent-text)}
+
+@media (prefers-reduced-motion:reduce){
+  .morph,.morph__title,.morph-veil{display:none!important}
+  #eco.is-entering .eco__map{transform:none;filter:none}
+  #eco.is-entering .eco__node:not(.is-launch){opacity:1;transform:translate(-50%,-50%)}
+}
+
+/* --- live operations inside a business ---------------------------- */
+.ind-live{margin-top:var(--s5);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(24px,3.4vw,48px);align-items:start}
+.ind-live__intro h3{font-family:var(--sans);font-size:var(--t-label);font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent-text)}
+.ind-live__intro p{margin-top:var(--s3);font-size:var(--t-sm);line-height:1.65;color:var(--body);max-width:46ch}
+.ind-live__mark{display:inline-flex;align-items:center;gap:9px;margin-top:var(--s3);
+  font-size:var(--t-label);letter-spacing:.24em;text-transform:uppercase;color:var(--text)}
+.ind-live__mark i{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+@media (prefers-reduced-motion:no-preference){
+  .ind-live__mark i{animation:lvBeat 2.6s var(--ease) infinite}
+  @keyframes lvBeat{0%,100%{box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+    50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 6%,transparent)}}
+}
+.ind-do{margin-top:var(--s5)}
+@media (max-width:860px){ .ind-live{grid-template-columns:minmax(0,1fr)} }
+
+/* ==================================================================
+   THE ASSISTANT BUILDS INTERFACE
+   A reply is not always a paragraph. When the assistant works out which
+   business a request belongs to, it puts that business on the screen —
+   the same match card, action rail and request flow used inside the
+   business itself, so nothing has to be learned twice.
+   ================================================================== */
+.msg-ui{align-self:stretch;width:100%;min-width:0}
+.msg-match{border:1px solid color-mix(in srgb,var(--accent) 46%,transparent);border-radius:var(--r);
+  background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 15%,transparent),var(--surface));
+  padding:15px 16px}
+.msg-match__k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-text);
+  display:flex;align-items:center;gap:8px}
+.msg-match__k::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.msg-match__n{font-family:var(--display);font-size:var(--t-lg);color:var(--text);margin-top:7px;line-height:1.1}
+.msg-match__w{font-size:var(--t-micro);line-height:1.6;color:var(--body);margin-top:9px}
+.msg-match__go{margin-top:13px;min-height:40px;padding:10px 17px;border-radius:var(--r-pill);cursor:pointer;
+  border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);background:none;font-family:inherit;
+  font-size:var(--t-micro);font-weight:600;letter-spacing:.05em;color:var(--text);
+  transition:background-color .25s var(--ease),transform .25s var(--ease)}
+.msg-match__go:hover{background:color-mix(in srgb,var(--accent) 20%,transparent);transform:translateX(2px)}
+/* Inside the panel the components run to a single column and shed a
+   little padding — the same components, sized for the space. */
+.chat .lv-acts{grid-template-columns:minmax(0,1fr);gap:8px}
+.chat .lv-act{min-height:52px;padding:12px 14px}
+.chat .lv-flow,.chat .lv-note{padding:16px}
+.chat .lv-flow__ask{font-size:var(--t-md);margin-top:var(--s2)}
+.chat .lv,.chat .lv-flow{border-radius:var(--r)}
+.chat .lv__facts{grid-template-columns:minmax(0,1fr)}
+@media (prefers-reduced-motion:no-preference){
+  .msg-ui{animation:uiIn .42s cubic-bezier(.16,1,.3,1) both}
+  @keyframes uiIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#organization","name":"ETERNA Holdings","legalName":"ETERNA Holdings Limited","url":"https://ester098.github.io/eterna2007/","logo":"https://ester098.github.io/eterna2007/og-image.png","slogan":"Building value. Creating impact.","description":"ETERNA Holdings Limited is a Tanzanian diversified holdings company in Dar es Salaam operating 5 companies: Logistics & Procurement, Commodities Trading, Marketing Agency, Real Estate, Cleaning Services.","email":"info@eternaholdings.com","telephone":"+255788665555","address":{"@type":"PostalAddress","postOfficeBoxNumber":"10235","addressLocality":"Dar es Salaam","addressCountry":"TZ"},"areaServed":{"@type":"Country","name":"Tanzania"},"knowsAbout":["Construction & infrastructure","Agriculture & commodities","Retail & distribution","Property & facilities","Manufacturing & industry","Telecommunications"],"subOrganization":[{"@id":"https://ester098.github.io/eterna2007/#logistics"},{"@id":"https://ester098.github.io/eterna2007/#trading"},{"@id":"https://ester098.github.io/eterna2007/#marketing"},{"@id":"https://ester098.github.io/eterna2007/#realestate"},{"@id":"https://ester098.github.io/eterna2007/#cleaning"}],"contactPoint":{"@type":"ContactPoint","telephone":"+255788665555","email":"info@eternaholdings.com","contactType":"sales","areaServed":"TZ","availableLanguage":["en","sw"]}},{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#logistics","name":"ETERNA Holdings Logistics & Procurement","parentOrganization":{"@id":"https://ester098.github.io/eterna2007/#organization"},"description":"Your goods clear the port, reach the warehouse and get to site — without you ringing anyone to ask where they are.","url":"https://ester098.github.io/eterna2007/#logistics","areaServed":{"@type":"Country","name":"Tanzania"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Freight forwarding","serviceType":"Logistics & Procurement","provider":{"@id":"https://ester098.github.io/eterna2007/#logistics"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Customs clearing","serviceType":"Logistics & Procurement","provider":{"@id":"https://ester098.github.io/eterna2007/#logistics"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Warehousing","serviceType":"Logistics & Procurement","provider":{"@id":"https://ester098.github.io/eterna2007/#logistics"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Supplier sourcing","serviceType":"Logistics & Procurement","provider":{"@id":"https://ester098.github.io/eterna2007/#logistics"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Last-mile delivery","serviceType":"Logistics & Procurement","provider":{"@id":"https://ester098.github.io/eterna2007/#logistics"},"areaServed":{"@type":"Country","name":"Tanzania"}}}]},{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#trading","name":"ETERNA Holdings Commodities Trading","parentOrganization":{"@id":"https://ester098.github.io/eterna2007/#organization"},"description":"You buy or sell at market price, with contracts and export paperwork that hold up when somebody checks them.","url":"https://ester098.github.io/eterna2007/#trading","areaServed":{"@type":"Country","name":"Tanzania"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Physical sourcing","serviceType":"Commodities Trading","provider":{"@id":"https://ester098.github.io/eterna2007/#trading"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Export documentation","serviceType":"Commodities Trading","provider":{"@id":"https://ester098.github.io/eterna2007/#trading"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Contracting","serviceType":"Commodities Trading","provider":{"@id":"https://ester098.github.io/eterna2007/#trading"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Counterparty diligence","serviceType":"Commodities Trading","provider":{"@id":"https://ester098.github.io/eterna2007/#trading"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Market access","serviceType":"Commodities Trading","provider":{"@id":"https://ester098.github.io/eterna2007/#trading"},"areaServed":{"@type":"Country","name":"Tanzania"}}}]},{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#marketing","name":"ETERNA Holdings Marketing Agency","parentOrganization":{"@id":"https://ester098.github.io/eterna2007/#organization"},"description":"Your customers understand what you sell before they ever speak to you. Strategy and execution both in-house — nothing farmed out.","url":"https://ester098.github.io/eterna2007/#marketing","areaServed":{"@type":"Country","name":"Tanzania"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Brand identity","serviceType":"Marketing Agency","provider":{"@id":"https://ester098.github.io/eterna2007/#marketing"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Campaign strategy","serviceType":"Marketing Agency","provider":{"@id":"https://ester098.github.io/eterna2007/#marketing"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Digital and social","serviceType":"Marketing Agency","provider":{"@id":"https://ester098.github.io/eterna2007/#marketing"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Content production","serviceType":"Marketing Agency","provider":{"@id":"https://ester098.github.io/eterna2007/#marketing"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Launch marketing","serviceType":"Marketing Agency","provider":{"@id":"https://ester098.github.io/eterna2007/#marketing"},"areaServed":{"@type":"Country","name":"Tanzania"}}}]},{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#realestate","name":"ETERNA Holdings Real Estate","parentOrganization":{"@id":"https://ester098.github.io/eterna2007/#organization"},"description":"Your building stays occupied, stays maintained and keeps its value. We manage property we also own, so we run yours the way we run ours.","url":"https://ester098.github.io/eterna2007/#realestate","areaServed":{"@type":"Country","name":"Tanzania"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Acquisition","serviceType":"Real Estate","provider":{"@id":"https://ester098.github.io/eterna2007/#realestate"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Development","serviceType":"Real Estate","provider":{"@id":"https://ester098.github.io/eterna2007/#realestate"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Property management","serviceType":"Real Estate","provider":{"@id":"https://ester098.github.io/eterna2007/#realestate"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Leasing","serviceType":"Real Estate","provider":{"@id":"https://ester098.github.io/eterna2007/#realestate"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tenant relations","serviceType":"Real Estate","provider":{"@id":"https://ester098.github.io/eterna2007/#realestate"},"areaServed":{"@type":"Country","name":"Tanzania"}}}]},{"@type":"Organization","@id":"https://ester098.github.io/eterna2007/#cleaning","name":"ETERNA Holdings Cleaning Services","parentOrganization":{"@id":"https://ester098.github.io/eterna2007/#organization"},"description":"Your offices get cleaned properly and on schedule, by vetted staff we supervise — so you never have to.","url":"https://ester098.github.io/eterna2007/#cleaning","areaServed":{"@type":"Country","name":"Tanzania"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial contracts","serviceType":"Cleaning Services","provider":{"@id":"https://ester098.github.io/eterna2007/#cleaning"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Facilities management","serviceType":"Cleaning Services","provider":{"@id":"https://ester098.github.io/eterna2007/#cleaning"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Deep cleaning","serviceType":"Cleaning Services","provider":{"@id":"https://ester098.github.io/eterna2007/#cleaning"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Vetted, supervised staff","serviceType":"Cleaning Services","provider":{"@id":"https://ester098.github.io/eterna2007/#cleaning"},"areaServed":{"@type":"Country","name":"Tanzania"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Post-construction cleaning","serviceType":"Cleaning Services","provider":{"@id":"https://ester098.github.io/eterna2007/#cleaning"},"areaServed":{"@type":"Country","name":"Tanzania"}}}]},{"@type":"WebSite","@id":"https://ester098.github.io/eterna2007/#website","url":"https://ester098.github.io/eterna2007/","name":"ETERNA Holdings","publisher":{"@id":"https://ester098.github.io/eterna2007/#organization"},"inLanguage":"en"},{"@type":"FAQPage","@id":"https://ester098.github.io/eterna2007/#faq","mainEntity":[{"@type":"Question","name":"Which company do I contact?","acceptedAnswer":{"@type":"Answer","text":"Describe the problem rather than the category. We route it to the right company, and you deal with one named person even if two of them are involved."}},{"@type":"Question","name":"How quickly do you reply?","acceptedAnswer":{"@type":"Answer","text":"By the next working day. Office hours are Monday to Friday, 08:00 to 17:00 EAT."}},{"@type":"Question","name":"How is pricing handled?","acceptedAnswer":{"@type":"Answer","text":"Nobody quotes a number before understanding the job. Every price reaches you in writing alongside the deliverables, timeline and your named contact."}},{"@type":"Question","name":"Can one project use more than one of your companies?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it often does — a shipment that needs a warehouse cleaned, a building that needs a campaign. The scope document says which companies are involved and why."}},{"@type":"Question","name":"Do you work outside Dar es Salaam?","acceptedAnswer":{"@type":"Answer","text":"Tell us where the work is and we will tell you honestly whether we are the right people for it."}}]}]}</script>
-<noscript><style>#curtain,#welcome{display:none!important}</style></noscript>
+<noscript><style>#veil{display:none!important}</style></noscript>
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
 <div class="grid-lines" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
-<div class="curtain" id="curtain">
-  <div class="curtain__leaf curtain__leaf--l"></div>
-  <div class="curtain__leaf curtain__leaf--r"></div>
-  <div class="curtain__mark">
-    <div>
-      <img src="images/eterna-logo.png" alt="ETERNA Holdings" width="480" height="158" fetchpriority="high" decoding="async">
-      <p class="curtain__line">Dar es Salaam · Tanzania</p>
-    </div>
-  </div>
-  <button class="curtain__skip" id="curtain-skip" type="button">Skip intro</button>
-</div>
+<div class="veil" id="veil" aria-hidden="true"></div>
 <script>
-/* Failsafe: the curtain is opaque, covers the viewport and locks scrolling, and only
-   the main script at the end of the document can lift it. If that script never runs
-   or throws, the visitor is left staring at a blank panel. This runs early and clears
-   the intro unconditionally after 6s — long after the normal ~3s sequence has finished. */
+/* Failsafe: the veil is an opaque full-screen panel and only the main script at the end
+   of the document takes it down. If that script never runs or throws, the visitor is left
+   on a blank navy page. This runs early and clears the veil unconditionally after 6s —
+   long after the normal ~1s opening — and the <noscript> rule in the head hides it
+   outright when JavaScript is off. */
 (function () {
   window.setTimeout(function () {
-    var c = document.getElementById("curtain"), w = document.getElementById("welcome");
-    if (c && !c.hidden) { c.hidden = true; }
-    if (w && !w.hidden) { w.hidden = true; }
-    if (document.body && document.body.style.overflow === "hidden") { document.body.style.overflow = ""; }
+    var v = document.getElementById("veil");
+    if (v) v.hidden = true;
   }, 6000);
 })();
 </script>
-<div class="welcome" id="welcome" aria-hidden="true" hidden>
-  <div><b>Welcome to ETERNA Holdings.</b>
-  <span>One relationship. Five companies. One standard of delivery.</span></div>
-</div>
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -943,7 +1255,7 @@ h3{font-size:var(--t-md);line-height:1.24}
     <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav" id="nav" aria-label="Primary">
       <a href="#ecosystem">The Group</a><a href="#industries">Industries</a><a href="#approach">How we work</a><a href="#work">Work</a><a href="#quote">Quotation</a><a href="#contact">Contact</a>
-      <a class="btn btn--ghost btn--sm" href="#contact" data-cta="nav">Start a conversation</a>
+      <a class="btn btn--ghost btn--sm" href="#contact" data-ways data-cta="nav">Start a conversation</a>
     </nav>
   </div>
 </header>
@@ -951,7 +1263,7 @@ h3{font-size:var(--t-md);line-height:1.24}
 <main id="main">
 
 <section class="stage" id="top">
-  <canvas class="stage__field" id="constellation" aria-hidden="true"></canvas>
+  <canvas class="stage__field rise-in rise-in--back" id="constellation" aria-hidden="true"></canvas>
   <div class="stage__vignette" aria-hidden="true"></div>
   <div class="stage__grain" aria-hidden="true"></div>
 
@@ -968,7 +1280,7 @@ h3{font-size:var(--t-md);line-height:1.24}
       one group, one named contact, one standard of delivery.</p>
 
     <div class="stage__cta reveal reveal--5">
-      <a class="btn btn--primary" href="#contact" data-cta="hero-primary">Start a conversation<svg width="17" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M0 4h16M12.5.5 16.5 4l-4 3.5" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      <a class="btn btn--primary" href="#contact" data-ways data-cta="hero-primary">Start a conversation<svg width="17" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M0 4h16M12.5.5 16.5 4l-4 3.5" stroke="currentColor" stroke-width="1.3"/></svg></a>
       <a class="btn btn--ghost" href="#ecosystem" data-cta="hero-secondary">Explore the group</a>
     </div>
 
@@ -1010,7 +1322,8 @@ h3{font-size:var(--t-md);line-height:1.24}
       <p class="eyebrow">The group</p>
       <h2>Five companies that already know how to work together.</h2>
       <p class="lead">Most groups are a list. This one is wired: a shipment that needs a warehouse cleaned,
-        a building that needs a campaign behind it. Select a company to see what it does and who it works with.</p>
+        a building that needs a campaign behind it. Hover a company to preview it — press it to go straight
+        inside, no scrolling required.</p>
     </div>
     <div class="eco" id="eco">
       <div class="eco__map">
@@ -1400,8 +1713,356 @@ h3{font-size:var(--t-md);line-height:1.24}
     <a href="tel:+255788665555">+255 788 665 555</a>.</p>
 </section>
 
-<script>window.ETERNA_DATA={"companies":[{"id":"logistics","name":"Logistics & Procurement","short":"Freight, clearing and warehousing","outcome":"Your goods clear the port, reach the warehouse and get to site — without you ringing anyone to ask where they are.","serves":["Importers and exporters","Manufacturers","Contractors and project sites","Retail and distribution"],"capabilities":["Freight forwarding","Customs clearing","Warehousing","Supplier sourcing","Last-mile delivery"],"useCases":["Clearing a consignment through Dar es Salaam port and delivering upcountry","Sourcing and consolidating suppliers for a construction programme","Holding stock in bonded storage between shipments"],"related":["trading","cleaning"],"keywords":["freight","shipping","cargo","customs","clearing","clearance","forwarding","warehouse","godown","logistics","procurement","supplier","haulage","transport","transportation","consignment","container","import","export","delivery","move","moving","equipment","truck","port"],"image":"logistics","focal":"center 50%","accent":"#17A2A6","accentText":"#5CD8DA"},{"id":"trading","name":"Commodities Trading","short":"Sourcing, contracting and export","outcome":"You buy or sell at market price, with contracts and export paperwork that hold up when somebody checks them.","serves":["Producers and cooperatives","Processors","International buyers","Regional distributors"],"capabilities":["Physical sourcing","Export documentation","Contracting","Counterparty diligence","Market access"],"useCases":["Taking a producer's volume to an international buyer under contract","Handling export documentation on a regional commodity shipment","Opening a route to market for a first-time exporter"],"related":["logistics","marketing"],"keywords":["commodity","commodities","trading","trade","export","exporting","buyer","seller","sourcing","market access","counterparty","contract","cashew","grain","minerals","produce","sell","buy"],"image":"trading","focal":"center 50%","accent":"#C2663C","accentText":"#EC9A6E"},{"id":"marketing","name":"Marketing Agency","short":"Brand, campaigns and digital","outcome":"Your customers understand what you sell before they ever speak to you. Strategy and execution both in-house — nothing farmed out.","serves":["Consumer brands","B2B and industrial firms","Property developers","Organisations entering a new market"],"capabilities":["Brand identity","Campaign strategy","Digital and social","Content production","Launch marketing"],"useCases":["Building the brand and campaign behind a product launch","Repositioning a business that has outgrown its identity","Running always-on digital for a company without an in-house team"],"related":["realestate","trading"],"keywords":["marketing","brand","branding","campaign","advertising","advertise","social","digital","content","design","agency","launch","website","promotion","awareness"],"image":"marketing","focal":"center 50%","accent":"#7C6BF0","accentText":"#AFA4FF"},{"id":"realestate","name":"Real Estate","short":"Acquisition, development and management","outcome":"Your building stays occupied, stays maintained and keeps its value. We manage property we also own, so we run yours the way we run ours.","serves":["Property owners and landlords","Investors","Corporate tenants","Developers"],"capabilities":["Acquisition","Development","Property management","Leasing","Tenant relations"],"useCases":["Taking over management of a building that is under-occupied","Running a development from site acquisition through to lease-up","Finding and fitting corporate premises"],"related":["cleaning","marketing"],"keywords":["property","real estate","building","tenant","rent","renting","lease","leasing","land","apartment","premises","office space","develop","development","landlord","construct","construction"],"image":"realestate","focal":"center 34%","accent":"#3C82D9","accentText":"#7FB2F5"},{"id":"cleaning","name":"Cleaning Services","short":"Commercial and facilities cleaning","outcome":"Your offices get cleaned properly and on schedule, by vetted staff we supervise — so you never have to.","serves":["Offices and corporate premises","Retail and hospitality","Residential blocks","Industrial sites"],"capabilities":["Commercial contracts","Facilities management","Deep cleaning","Vetted, supervised staff","Post-construction cleaning"],"useCases":["A daily contract across several floors with supervision built in","Post-construction clean before a building is handed over","Common-area cleaning for a managed residential block"],"related":["realestate","logistics"],"keywords":["clean","cleaning","janitor","janitorial","facilities","housekeeping","deep clean","office cleaning","sanitation","maintenance"],"image":"cleaning","focal":"center 50%","accent":"#35B98A","accentText":"#66DCAF"}],"followUps":{"logistics":{"ask":"Is this moving within Tanzania, or crossing a border?","options":["Within Tanzania","Import into Tanzania","Export out of Tanzania"]},"trading":{"ask":"Are you looking to buy, or to sell?","options":["I want to buy","I want to sell","I need export paperwork"]},"marketing":{"ask":"Is this a launch, a rebrand, or ongoing work?","options":["A launch","A rebrand","Ongoing digital"]},"realestate":{"ask":"Are you letting a property, managing one, or developing?","options":["Letting it out","Managing it","Developing"]},"cleaning":{"ask":"Is this a regular contract or a one-off clean?","options":["Regular contract","One-off clean","Post-construction"]}},"industryHints":[{"id":"construction","label":"Construction","words":["construction","site","contractor","build","building site","equipment","machinery","cement","steel"]},{"id":"agriculture","label":"Agriculture","words":["farm","agriculture","produce","crop","cashew","grain","coffee","harvest","cooperative"]},{"id":"retail","label":"Retail","words":["retail","shop","store","distribution","stock","supermarket"]},{"id":"manufacturing","label":"Manufacturing","words":["factory","manufacturing","plant","industrial","production line"]},{"id":"telecoms","label":"Telecommunications","words":["telecom","network","tower","fibre","mobile network"]},{"id":"hospitality","label":"Hospitality","words":["hotel","lodge","restaurant","hospitality","resort"]}],"quoteCatalogue":{"logistics":[{"code":"LOG-FRW","name":"Freight forwarding","unit":"consignment"},{"code":"LOG-CLR","name":"Customs clearing","unit":"declaration"},{"code":"LOG-WHS","name":"Warehousing","unit":"pallet / week"},{"code":"LOG-TRN","name":"Inland transport","unit":"trip"},{"code":"LOG-SRC","name":"Supplier sourcing","unit":"engagement"}],"trading":[{"code":"TRD-SRC","name":"Commodity sourcing","unit":"tonne"},{"code":"TRD-DOC","name":"Export documentation","unit":"shipment"},{"code":"TRD-CON","name":"Contracting and diligence","unit":"contract"}],"marketing":[{"code":"MKT-BRD","name":"Brand identity","unit":"project"},{"code":"MKT-CMP","name":"Campaign strategy and production","unit":"campaign"},{"code":"MKT-DIG","name":"Digital and social management","unit":"month"},{"code":"MKT-CNT","name":"Content production","unit":"day"}],"realestate":[{"code":"RE-MGT","name":"Property management","unit":"unit / month"},{"code":"RE-LSE","name":"Leasing and tenant placement","unit":"unit"},{"code":"RE-DEV","name":"Development management","unit":"project"}],"cleaning":[{"code":"CLN-CON","name":"Commercial cleaning contract","unit":"site / month"},{"code":"CLN-DEEP","name":"Deep clean","unit":"visit"},{"code":"CLN-PC","name":"Post-construction clean","unit":"project"},{"code":"CLN-FAC","name":"Facilities management","unit":"site / month"}]},"tax":{"name":"VAT","rate":0.18,"apply":true,"note":"Applied where the service is VAT-rated."},"org":{"name":"ETERNA Holdings","legalName":"ETERNA Holdings Limited","city":"Dar es Salaam","country":"Tanzania","poBox":"P.O. Box 10235","hours":"Monday – Friday, 08:00 – 17:00 EAT","phone":"+255 788 665 555","email":"info@eternaholdings.com"}};</script>
-<script>/* ============================================================
+<!-- The industry stage. Pressing a company opens it here, expanding from
+     the point that was pressed, so nobody has to go hunting for a section. -->
+<div class="ind-stage" id="ind-stage" role="dialog" aria-modal="true" aria-labelledby="ind-title" hidden>
+  <div class="ind-stage__scrim" aria-hidden="true"></div>
+  <div class="ind-stage__sheet" id="ind-sheet" tabindex="-1"></div>
+</div>
+
+<!-- Three ways in. Nobody is forced down one funnel. -->
+<div class="ways" id="ways" role="dialog" aria-modal="true" aria-labelledby="ways-title" hidden>
+  <div class="ways__scrim" data-ways-close></div>
+  <div class="ways__panel">
+    <button class="ways__x" type="button" data-ways-close aria-label="Close">&times;</button>
+    <p class="eyebrow">Start a conversation</p>
+    <h2 id="ways-title">How would you like to begin?</h2>
+    <p>Three ways in. All of them reach the same team — pick whichever suits the hour you are in.</p>
+    <div class="ways__list">
+      <a class="way" href="tel:+255788665555" data-way="partner" data-cta="ways-partner">
+        <span class="way__n">01</span>
+        <b>Talk to a partner</b>
+        <span>Call the office and speak to someone who can commit. Monday – Friday, 08:00 – 17:00 EAT.</span>
+        <span class="way__go">+255 788 665 555</span>
+      </a>
+      <button class="way" type="button" data-way="ai">
+        <span class="way__n">02</span>
+        <b>Ask the assistant</b>
+        <span>Answers now, at any hour — what we handle, how a job runs, what we would need from you.</span>
+        <span class="way__go">Open the assistant</span>
+      </button>
+      <button class="way" type="button" data-way="contact">
+        <span class="way__n">03</span>
+        <b>Send the details</b>
+        <span>Three short steps. We read it and reply by the next working day.</span>
+        <span class="way__go">Write to us</span>
+      </button>
+    </div>
+    <div class="ways__foot">
+      <span>Prefer email? <a href="mailto:info@eternaholdings.com">info@eternaholdings.com</a></span>
+      <span>P.O. Box 10235, Dar es Salaam</span>
+    </div>
+  </div>
+</div>
+
+<script>window.ETERNA_DATA={"companies":[{"id":"logistics","name":"Logistics & Procurement","short":"Freight, clearing and warehousing","outcome":"Your goods clear the port, reach the warehouse and get to site — without you ringing anyone to ask where they are.","serves":["Importers and exporters","Manufacturers","Contractors and project sites","Retail and distribution"],"capabilities":["Freight forwarding","Customs clearing","Warehousing","Supplier sourcing","Last-mile delivery"],"useCases":["Clearing a consignment through Dar es Salaam port and delivering upcountry","Sourcing and consolidating suppliers for a construction programme","Holding stock in bonded storage between shipments"],"related":["trading","cleaning"],"keywords":["freight","shipping","cargo","customs","clearing","clearance","forwarding","warehouse","godown","logistics","procurement","supplier","haulage","transport","transportation","consignment","container","import","export","delivery","move","moving","equipment","truck","port"],"image":"logistics","focal":"center 50%","accent":"#17A2A6","accentText":"#5CD8DA","problems":[{"p":"My consignment is stuck at the port and nobody can tell me why.","s":"We take over the file, deal with the declaration and the port formalities, and give you one contact who can tell you where it is."},{"p":"I am buying from several suppliers and losing track of what has shipped.","s":"We consolidate the sourcing and the freight under one schedule, so you get one status rather than five."},{"p":"The goods arrive but there is nowhere to put them.","s":"Bonded or general storage between shipments, and delivery to site when you actually need it."}],"needs":["Bill of lading or airway bill","Commercial invoice and packing list","Delivery address and required date"]},{"id":"trading","name":"Commodities Trading","short":"Sourcing, contracting and export","outcome":"You buy or sell at market price, with contracts and export paperwork that hold up when somebody checks them.","serves":["Producers and cooperatives","Processors","International buyers","Regional distributors"],"capabilities":["Physical sourcing","Export documentation","Contracting","Counterparty diligence","Market access"],"useCases":["Taking a producer's volume to an international buyer under contract","Handling export documentation on a regional commodity shipment","Opening a route to market for a first-time exporter"],"related":["logistics","marketing"],"keywords":["commodity","commodities","trading","trade","export","exporting","buyer","seller","sourcing","market access","counterparty","contract","cashew","grain","minerals","produce","sell","buy"],"image":"trading","focal":"center 50%","accent":"#C2663C","accentText":"#EC9A6E","problems":[{"p":"I have volume to sell and no route to a serious buyer.","s":"We take it to market under contract, with the counterparty checked before anything moves."},{"p":"My export paperwork keeps being rejected.","s":"We prepare the documentation to the destination's requirements, so the shipment is not sitting while it is corrected."},{"p":"I want to import but do not know who to buy from.","s":"We identify and qualify suppliers, then hold the commercial terms in writing."}],"needs":["Commodity, grade and volume","Origin or destination market","Timeframe and any existing contract"]},{"id":"marketing","name":"Marketing Agency","short":"Brand, campaigns and digital","outcome":"Your customers understand what you sell before they ever speak to you. Strategy and execution both in-house — nothing farmed out.","serves":["Consumer brands","B2B and industrial firms","Property developers","Organisations entering a new market"],"capabilities":["Brand identity","Campaign strategy","Digital and social","Content production","Launch marketing"],"useCases":["Building the brand and campaign behind a product launch","Repositioning a business that has outgrown its identity","Running always-on digital for a company without an in-house team"],"related":["realestate","trading"],"keywords":["marketing","brand","branding","campaign","advertising","advertise","social","digital","content","design","agency","launch","website","promotion","awareness"],"image":"marketing","focal":"center 50%","accent":"#7C6BF0","accentText":"#AFA4FF","problems":[{"p":"People do not understand what we sell until we explain it in person.","s":"We build the brand and the message so the explaining is already done before the meeting."},{"p":"We are launching and have nothing to launch with.","s":"Strategy, identity, campaign and content produced in-house against your launch date."},{"p":"We post, but nothing comes of it.","s":"We run it as a campaign with a defined audience and a defined action, and report on what it did."}],"needs":["What you sell and to whom","Any existing brand material","The date you need to be live"]},{"id":"realestate","name":"Real Estate","short":"Acquisition, development and management","outcome":"Your building stays occupied, stays maintained and keeps its value. We manage property we also own, so we run yours the way we run ours.","serves":["Property owners and landlords","Investors","Corporate tenants","Developers"],"capabilities":["Acquisition","Development","Property management","Leasing","Tenant relations"],"useCases":["Taking over management of a building that is under-occupied","Running a development from site acquisition through to lease-up","Finding and fitting corporate premises"],"related":["cleaning","marketing"],"keywords":["property","real estate","building","tenant","rent","renting","lease","leasing","land","apartment","premises","office space","develop","development","landlord","construct","construction"],"image":"realestate","focal":"center 34%","accent":"#3C82D9","accentText":"#7FB2F5","problems":[{"p":"My building is half empty and I am not sure why.","s":"We assess the asset and the market, price it properly and take it to tenants who fit."},{"p":"Managing tenants has become my second job.","s":"We take over management — tenants, maintenance, collections and reporting — and you get a statement."},{"p":"I have a site and no idea what it should become.","s":"We run it from acquisition through development to lease-up, with one contact across the programme."}],"needs":["Location and size of the property","Current occupancy or condition","Whether you are letting, developing or selling"]},{"id":"cleaning","name":"Cleaning Services","short":"Commercial and facilities cleaning","outcome":"Your offices get cleaned properly and on schedule, by vetted staff we supervise — so you never have to.","serves":["Offices and corporate premises","Retail and hospitality","Residential blocks","Industrial sites"],"capabilities":["Commercial contracts","Facilities management","Deep cleaning","Vetted, supervised staff","Post-construction cleaning"],"useCases":["A daily contract across several floors with supervision built in","Post-construction clean before a building is handed over","Common-area cleaning for a managed residential block"],"related":["realestate","logistics"],"keywords":["clean","cleaning","janitor","janitorial","facilities","housekeeping","deep clean","office cleaning","sanitation","maintenance"],"image":"cleaning","focal":"center 50%","accent":"#35B98A","accentText":"#66DCAF","problems":[{"p":"The cleaners come, but the standard drops the moment nobody checks.","s":"Supervision is part of the contract, not something you have to chase. The standard is inspected, not assumed."},{"p":"We are handing a building over and it is a building site.","s":"Post-construction clean to handover standard, scheduled around the contractor."},{"p":"Different sites, different contractors, different results.","s":"One contract across the sites, one specification, one point of accountability."}],"needs":["Site type and floor area","Frequency required","Any access or security constraints"]}],"followUps":{"logistics":{"ask":"Is this moving within Tanzania, or crossing a border?","options":["Within Tanzania","Import into Tanzania","Export out of Tanzania"]},"trading":{"ask":"Are you looking to buy, or to sell?","options":["I want to buy","I want to sell","I need export paperwork"]},"marketing":{"ask":"Is this a launch, a rebrand, or ongoing work?","options":["A launch","A rebrand","Ongoing digital"]},"realestate":{"ask":"Are you letting a property, managing one, or developing?","options":["Letting it out","Managing it","Developing"]},"cleaning":{"ask":"Is this a regular contract or a one-off clean?","options":["Regular contract","One-off clean","Post-construction"]}},"industryHints":[{"id":"construction","label":"Construction","words":["construction","site","contractor","build","building site","equipment","machinery","cement","steel"]},{"id":"agriculture","label":"Agriculture","words":["farm","agriculture","produce","crop","cashew","grain","coffee","harvest","cooperative"]},{"id":"retail","label":"Retail","words":["retail","shop","store","distribution","stock","supermarket"]},{"id":"manufacturing","label":"Manufacturing","words":["factory","manufacturing","plant","industrial","production line"]},{"id":"telecoms","label":"Telecommunications","words":["telecom","network","tower","fibre","mobile network"]},{"id":"hospitality","label":"Hospitality","words":["hotel","lodge","restaurant","hospitality","resort"]}],"quoteCatalogue":{"logistics":[{"code":"LOG-FRW","name":"Freight forwarding","unit":"consignment"},{"code":"LOG-CLR","name":"Customs clearing","unit":"declaration"},{"code":"LOG-WHS","name":"Warehousing","unit":"pallet / week"},{"code":"LOG-TRN","name":"Inland transport","unit":"trip"},{"code":"LOG-SRC","name":"Supplier sourcing","unit":"engagement"}],"trading":[{"code":"TRD-SRC","name":"Commodity sourcing","unit":"tonne"},{"code":"TRD-DOC","name":"Export documentation","unit":"shipment"},{"code":"TRD-CON","name":"Contracting and diligence","unit":"contract"}],"marketing":[{"code":"MKT-BRD","name":"Brand identity","unit":"project"},{"code":"MKT-CMP","name":"Campaign strategy and production","unit":"campaign"},{"code":"MKT-DIG","name":"Digital and social management","unit":"month"},{"code":"MKT-CNT","name":"Content production","unit":"day"}],"realestate":[{"code":"RE-MGT","name":"Property management","unit":"unit / month"},{"code":"RE-LSE","name":"Leasing and tenant placement","unit":"unit"},{"code":"RE-DEV","name":"Development management","unit":"project"}],"cleaning":[{"code":"CLN-CON","name":"Commercial cleaning contract","unit":"site / month"},{"code":"CLN-DEEP","name":"Deep clean","unit":"visit"},{"code":"CLN-PC","name":"Post-construction clean","unit":"project"},{"code":"CLN-FAC","name":"Facilities management","unit":"site / month"}]},"tax":{"name":"VAT","rate":0.18,"apply":true,"note":"Applied where the service is VAT-rated."},"live":{"logistics":{"noun":"Shipment","prefix":"ET","track":["Booked","Collected","Customs","In transit","At warehouse","Delivered"],"fieldOrder":["route","cargo","mode","eta"],"record":{"demo":true,"ref":"ET-2048","stage":3,"fields":[{"k":"Route","v":"Shanghai → Dar es Salaam"},{"k":"Cargo","v":"2 × 40ft container"},{"k":"Mode","v":"Sea freight"},{"k":"Arriving","v":"In about 18 hours"}],"note":"Stage updates would come from the clearing agent and the port system."},"actions":[{"id":"request","label":"Start a shipment request","kind":"flow"},{"id":"track","label":"Track an existing shipment","kind":"lookup"},{"id":"documents","label":"Send us your documents","kind":"upload"},{"id":"quote","label":"Request a quotation","kind":"quote"},{"id":"human","label":"Talk to a specialist","kind":"human"}],"flow":{"title":"Transport request","steps":[{"id":"origin","ask":"Where does it start?","label":"Origin","hint":"City, port or address","type":"text","suggest":["Dar es Salaam","Shanghai","Mombasa","Dubai"]},{"id":"destination","ask":"Where does it need to get to?","label":"Destination","hint":"City, port or address","type":"text","suggest":["Nairobi","Mwanza","Kampala","Lusaka"]},{"id":"cargo","ask":"What is moving, and how much of it?","label":"Cargo","hint":"e.g. 20 tonnes of steel, or 2 × 40ft containers","type":"text"},{"id":"when","ask":"When does it need to move?","label":"Timing","type":"choice","options":["As soon as possible","Within two weeks","A planned date","Still deciding"]}]}},"trading":{"noun":"Trade","prefix":"CT","track":["Enquiry","Supplier verification","Contract","Quality verification","Shipped","Settled"],"fieldOrder":["commodity","volume","route","stage"],"record":{"demo":true,"ref":"CT-2048","stage":3,"fields":[{"k":"Commodity","v":"Raw cashew nuts"},{"k":"Volume","v":"500 tonnes"},{"k":"Route","v":"Mtwara → Ho Chi Minh City"},{"k":"Terms","v":"Contract signed, pre-shipment inspection"}],"note":"Stage updates would come from the inspection body and the shipping line."},"actions":[{"id":"request","label":"Start a trade enquiry","kind":"flow"},{"id":"track","label":"Follow an existing trade","kind":"lookup"},{"id":"documents","label":"Send us your documents","kind":"upload"},{"id":"quote","label":"Request a quotation","kind":"quote"},{"id":"human","label":"Talk to a specialist","kind":"human"}],"flow":{"title":"Trade enquiry","steps":[{"id":"side","ask":"Are you buying or selling?","label":"Position","type":"choice","options":["I am buying","I am selling","I need export paperwork only"]},{"id":"commodity","ask":"Which commodity, and what grade?","label":"Commodity","hint":"e.g. raw cashew, sesame, maize","type":"text","suggest":["Raw cashew nuts","Sesame seed","Maize","Pigeon peas"]},{"id":"volume","ask":"What volume are we talking about?","label":"Volume","hint":"e.g. 500 tonnes","type":"text"},{"id":"market","ask":"Which market — where is it coming from or going to?","label":"Market","hint":"Country or port","type":"text"}]}},"marketing":{"noun":"Campaign","prefix":"MK","track":["Brief","Strategy","Creative","Approval","Live","Optimisation"],"fieldOrder":["campaign","channels","assets","stage"],"record":{"demo":true,"ref":"MK-2048","stage":5,"fields":[{"k":"Campaign","v":"Product launch, national"},{"k":"Channels","v":"Radio, outdoor, social"},{"k":"Assets","v":"12 of 20 published"},{"k":"Enquiries","v":"327 since launch"}],"note":"Figures would come from the ad platforms and the client's own enquiry inbox."},"actions":[{"id":"request","label":"Start a campaign brief","kind":"flow"},{"id":"track","label":"See a campaign in progress","kind":"lookup"},{"id":"documents","label":"Send us your brand material","kind":"upload"},{"id":"quote","label":"Request a quotation","kind":"quote"},{"id":"human","label":"Talk to a strategist","kind":"human"}],"flow":{"title":"Campaign brief","steps":[{"id":"goal","ask":"What is this campaign meant to achieve?","label":"Objective","type":"choice","options":["Launch something new","Rebrand","Sell more of what we have","Be better known"]},{"id":"product","ask":"What are you marketing, and to whom?","label":"Product and audience","hint":"e.g. a new drink, to under-30s in Dar","type":"text"},{"id":"channels","ask":"Where should it run?","label":"Channels","type":"choice","options":["Social and digital","Radio and outdoor","Everything that fits","You advise us"]},{"id":"when","ask":"When do you need to be live?","label":"Live date","hint":"A month is enough","type":"text"}]}},"realestate":{"noun":"Property","prefix":"RE","track":["Brief","Shortlist","Viewing","Offer","Documentation","Handover"],"fieldOrder":["property","type","documentation","stage"],"record":{"demo":true,"ref":"RE-2048","stage":4,"fields":[{"k":"Property","v":"Office floor, Masaki"},{"k":"Requirement","v":"Lease, 400 m²"},{"k":"Documentation","v":"4 of 5 items received"},{"k":"Next","v":"Title verification"}],"note":"Documentation status would come from the conveyancing file."},"actions":[{"id":"request","label":"Tell us what you are looking for","kind":"flow"},{"id":"track","label":"Follow a property you are on","kind":"lookup"},{"id":"documents","label":"Send us your documents","kind":"upload"},{"id":"quote","label":"Request a valuation or quotation","kind":"quote"},{"id":"human","label":"Talk to an agent","kind":"human"}],"flow":{"title":"Property requirement","steps":[{"id":"intent","ask":"What are you trying to do?","label":"Requirement","type":"choice","options":["Let out a property I own","Find space to occupy","Have mine managed","Develop a site"]},{"id":"type","ask":"What kind of property?","label":"Property type","type":"choice","options":["Office","Retail","Residential","Industrial or warehouse","Land"]},{"id":"where","ask":"Whereabouts?","label":"Location","hint":"Area or city","type":"text","suggest":["Masaki","Mikocheni","Oyster Bay","Dodoma"]},{"id":"size","ask":"Roughly what size, and by when?","label":"Size and timing","hint":"e.g. 400 m², needed by March","type":"text"}]}},"cleaning":{"noun":"Service","prefix":"CL","track":["Booked","Team assigned","En route","On site","In progress","Signed off"],"fieldOrder":["site","schedule","team","stage"],"record":{"demo":true,"ref":"CL-2048","stage":4,"fields":[{"k":"Site","v":"Office, 3 floors, Upanga"},{"k":"Schedule","v":"Weekly, Monday mornings"},{"k":"Team","v":"4 staff, supervised"},{"k":"Today","v":"On site since 09:42"}],"note":"Arrival and sign-off would come from the supervisor's check-in."},"actions":[{"id":"request","label":"Book a clean","kind":"flow"},{"id":"track","label":"Check a service you have booked","kind":"lookup"},{"id":"documents","label":"Send us a site plan or specification","kind":"upload"},{"id":"quote","label":"Request a quotation","kind":"quote"},{"id":"human","label":"Talk to the operations team","kind":"human"}],"flow":{"title":"Cleaning booking","steps":[{"id":"kind","ask":"What kind of clean is it?","label":"Service","type":"choice","options":["Regular contract","One-off deep clean","Post-construction","Move-in or move-out"]},{"id":"site","ask":"What is the site, and how big?","label":"Site","hint":"e.g. an office over 3 floors, about 900 m²","type":"text"},{"id":"when","ask":"How often, and when?","label":"Schedule","type":"choice","options":["Daily","Weekly","Fortnightly","A single visit"]},{"id":"where","ask":"Whereabouts is it?","label":"Location","hint":"Area or address","type":"text"}]}}},"org":{"name":"ETERNA Holdings","legalName":"ETERNA Holdings Limited","city":"Dar es Salaam","country":"Tanzania","poBox":"P.O. Box 10235","hours":"Monday – Friday, 08:00 – 17:00 EAT","phone":"+255 788 665 555","email":"info@eternaholdings.com"}};</script>
+
+<script>
+/* ============================================================
+   ETERNA LIVE
+   One operational layer across the five companies. Not five tracking
+   systems — one set of components (record card, stage track, action rail,
+   progressive request flow) that reads a different configuration per
+   business. Swap the configuration, the experience changes; swap the data
+   source, nothing else has to move.
+
+   HONESTY RULE, enforced in code rather than by convention:
+   `card()` refuses to render a record that is neither marked `demo` nor
+   carries a `source`. Nothing on this page can therefore present made-up
+   operational data as if it were real. When a backend exists it supplies
+   records with a `source`, and the demonstration marker disappears by
+   itself — no copy to go back and correct.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var D = window.ETERNA_DATA || {};
+  var LIVE = D.live || {};
+  var COMPANIES = D.companies || [];
+  var byId = {};
+  COMPANIES.forEach(function (c) { byId[c.id] = c; });
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  /* --- the stage track ---------------------------------------------
+     The same shape for a shipment, a trade, a campaign, a property and a
+     clean: named stages, one of them current, the rest before or ahead. */
+  function track(cfg, stage) {
+    var wrap = el("ol", "lv-track");
+    cfg.track.forEach(function (name, i) {
+      var n = i + 1;
+      var li = el("li", "lv-track__step" +
+        (n < stage ? " is-done" : n === stage ? " is-now" : ""));
+      li.appendChild(el("span", "lv-track__dot"));
+      li.appendChild(el("span", "lv-track__name", name));
+      if (n === stage) li.setAttribute("aria-current", "step");
+      wrap.appendChild(li);
+    });
+    return wrap;
+  }
+
+  /* --- the record card ---------------------------------------------- */
+  function card(id, record) {
+    var cfg = LIVE[id];
+    var c = byId[id];
+    if (!cfg || !c) return null;
+    var r = record || cfg.record;
+    /* The guard. A record with neither a demonstration marker nor a named
+       source does not get drawn at all. */
+    if (!r || (!r.demo && !r.source)) return null;
+
+    var root = el("div", "lv");
+    root.style.setProperty("--accent", c.accent);
+    root.style.setProperty("--accent-text", c.accentText || c.accent);
+
+    var head = el("div", "lv__head");
+    var idc = el("div", "lv__id");
+    idc.appendChild(el("p", "lv__noun", cfg.noun));
+    idc.appendChild(el("p", "lv__ref", r.ref));
+    head.appendChild(idc);
+    head.appendChild(r.demo
+      ? el("span", "lv__flag", "Demonstration data")
+      : el("span", "lv__flag lv__flag--real", r.source));
+    root.appendChild(head);
+
+    var dl = el("dl", "lv__facts");
+    (r.fields || []).forEach(function (f) {
+      var d = el("div");
+      d.appendChild(el("dt", null, f.k));
+      d.appendChild(el("dd", null, f.v));
+      dl.appendChild(d);
+    });
+    root.appendChild(dl);
+
+    root.appendChild(el("p", "lv__stage-label",
+      "Stage " + r.stage + " of " + cfg.track.length + " — " + cfg.track[r.stage - 1]));
+    root.appendChild(track(cfg, r.stage));
+
+    if (r.demo) {
+      root.appendChild(el("p", "lv__note",
+        "This is a worked example of how a " + cfg.noun.toLowerCase() + " would be shown to you, not a real "
+        + cfg.noun.toLowerCase() + ". " + (r.note || "")));
+    } else if (r.note) {
+      root.appendChild(el("p", "lv__note", r.note));
+    }
+    return root;
+  }
+
+  /* --- the action rail ----------------------------------------------
+     What a customer can actually do from inside a business. Each button
+     carries its kind, so one handler routes all five businesses. */
+  function actions(id, opts) {
+    var cfg = LIVE[id];
+    if (!cfg) return null;
+    opts = opts || {};
+    var rail = el("div", "lv-acts");
+    (cfg.actions || []).forEach(function (a, i) {
+      var b = el("button", "lv-act" + (i === 0 ? " lv-act--lead" : ""));
+      b.type = "button";
+      b.setAttribute("data-live-act", a.kind);
+      b.setAttribute("data-live-co", id);
+      b.appendChild(el("span", "lv-act__n", String(i + 1).padStart(2, "0")));
+      b.appendChild(el("span", "lv-act__label", a.label));
+      rail.appendChild(b);
+    });
+    if (opts.heading !== false) {
+      var box = el("div", "lv-acts__box");
+      box.appendChild(el("h3", null, "What would you like to do?"));
+      box.appendChild(rail);
+      return box;
+    }
+    return rail;
+  }
+
+  /* --- the progressive request flow ----------------------------------
+     One question at a time, each answer kept, and a summary at the end
+     that says plainly what has and has not happened. The same engine
+     drives a transport request, a trade enquiry, a campaign brief, a
+     property requirement and a cleaning booking. */
+  function Flow(id, onDone, seed) {
+    var cfg = LIVE[id];
+    var c = byId[id];
+    var at = 0;
+    var answers = Object.assign({}, seed || {});
+    /* A seeded answer is already known — do not ask for it again. */
+    var steps = (cfg.flow.steps || []).filter(function (s) { return !answers[s.id]; });
+    var root = el("form", "lv-flow");
+    root.setAttribute("novalidate", "");
+    root.style.setProperty("--accent", c.accent);
+    root.style.setProperty("--accent-text", c.accentText || c.accent);
+
+    function pill(k, v) {
+      var p = el("span", "lv-flow__chip");
+      p.appendChild(el("b", null, k));
+      p.appendChild(document.createTextNode(v));
+      return p;
+    }
+
+    function known() {
+      var wrap = el("div", "lv-flow__known");
+      (cfg.flow.steps || []).forEach(function (s) {
+        if (answers[s.id]) wrap.appendChild(pill(s.label, answers[s.id]));
+      });
+      return wrap.children.length ? wrap : null;
+    }
+
+    function paint() {
+      root.innerHTML = "";
+      var head = el("div", "lv-flow__head");
+      head.appendChild(el("p", "lv-flow__title", cfg.flow.title));
+      head.appendChild(el("p", "lv-flow__count",
+        at < steps.length ? "Step " + (at + 1) + " of " + steps.length : "Ready to send"));
+      root.appendChild(head);
+
+      var k = known();
+      if (k) root.appendChild(k);
+
+      if (at >= steps.length) return summary();
+
+      var s = steps[at];
+      var q = el("p", "lv-flow__ask", s.ask);
+      q.id = "lv-ask";
+      q.tabIndex = -1;
+      root.appendChild(q);
+
+      if (s.type === "choice") {
+        var opts = el("div", "lv-flow__opts");
+        s.options.forEach(function (o) {
+          var b = el("button", "lv-flow__opt", o);
+          b.type = "button";
+          b.addEventListener("click", function () { answer(s.id, o); });
+          opts.appendChild(b);
+        });
+        root.appendChild(opts);
+      } else {
+        var row = el("div", "lv-flow__row");
+        var input = el("input", "lv-flow__input");
+        input.type = "text";
+        input.autocomplete = "off";
+        input.placeholder = s.hint || "";
+        input.setAttribute("aria-labelledby", "lv-ask");
+        var go = el("button", "lv-flow__go", "Next");
+        go.type = "submit";
+        row.appendChild(input);
+        row.appendChild(go);
+        root.appendChild(row);
+        if (s.suggest) {
+          var sug = el("div", "lv-flow__opts lv-flow__opts--sug");
+          s.suggest.forEach(function (o) {
+            var b = el("button", "lv-flow__opt lv-flow__opt--sm", o);
+            b.type = "button";
+            b.addEventListener("click", function () { answer(s.id, o); });
+            sug.appendChild(b);
+          });
+          root.appendChild(sug);
+        }
+        root.onsubmit = function (e) {
+          e.preventDefault();
+          var v = input.value.trim();
+          if (v.length < 2) { input.focus(); return; }
+          answer(s.id, v);
+        };
+        window.setTimeout(function () { input.focus({ preventScroll: true }); }, 40);
+      }
+
+      if (at > 0) {
+        var back = el("button", "lv-flow__back", "Back");
+        back.type = "button";
+        back.addEventListener("click", function () {
+          at = Math.max(0, at - 1);
+          delete answers[steps[at].id];
+          paint();
+        });
+        root.appendChild(back);
+      }
+    }
+
+    function answer(key, value) {
+      answers[key] = value;
+      at++;
+      paint();
+      var q = root.querySelector("#lv-ask");
+      if (q) q.focus({ preventScroll: true });
+    }
+
+    /* The end of the flow is deliberately honest. The request is assembled
+       and shown back, and the copy says exactly what state it is in: this
+       prototype has no backend, so nothing has been submitted or booked. */
+    function summary() {
+      root.appendChild(el("p", "lv-flow__done-h", "Here is your request, as we have it."));
+      var dl = el("dl", "lv__facts");
+      (cfg.flow.steps || []).forEach(function (s) {
+        if (!answers[s.id]) return;
+        var d = el("div");
+        d.appendChild(el("dt", null, s.label));
+        d.appendChild(el("dd", null, answers[s.id]));
+        dl.appendChild(d);
+      });
+      root.appendChild(dl);
+
+      root.appendChild(el("p", "lv-flow__warn",
+        "Nothing has been sent, booked or priced. This site is not yet connected to Eterna's operations, "
+        + "so this is the request assembled and nothing more. Send it to the team and a named contact "
+        + "replies by the next working day."));
+
+      var cta = el("div", "lv-flow__cta");
+      var send = el("button", "btn btn--primary", "Send this to " + c.name);
+      send.type = "button";
+      send.addEventListener("click", function () {
+        if (onDone) onDone(answers, cfg);
+      });
+      var edit = el("button", "btn btn--ghost", "Change something");
+      edit.type = "button";
+      edit.addEventListener("click", function () { at = 0; answers = {}; paint(); });
+      cta.appendChild(send);
+      cta.appendChild(edit);
+      root.appendChild(cta);
+    }
+
+    paint();
+    return { el: root, answers: function () { return answers; } };
+  }
+
+  /* --- a plain notice, used where an action needs a backend ---------- */
+  function notice(title, body, ctas) {
+    var n = el("div", "lv-note");
+    n.appendChild(el("p", "lv-note__t", title));
+    n.appendChild(el("p", "lv-note__b", body));
+    if (ctas && ctas.length) {
+      var row = el("div", "lv-note__cta");
+      ctas.forEach(function (c) {
+        var b = el(c.href ? "a" : "button", "btn " + (c.primary ? "btn--primary" : "btn--ghost"), c.label);
+        if (c.href) b.href = c.href; else b.type = "button";
+        if (c.attrs) Object.keys(c.attrs).forEach(function (k) { b.setAttribute(k, c.attrs[k]); });
+        if (c.onClick) b.addEventListener("click", c.onClick);
+        row.appendChild(b);
+      });
+      n.appendChild(row);
+    }
+    return n;
+  }
+
+  window.EternaLive = {
+    config: function (id) { return LIVE[id]; },
+    card: card,
+    track: track,
+    actions: actions,
+    Flow: Flow,
+    notice: notice,
+    /* Named so a real API can be dropped in here later: return a promise
+       of a record with a `source` and the demonstration marker goes away. */
+    fetchRecord: function (id) { return Promise.resolve((LIVE[id] || {}).record || null); },
+  };
+})();
+
+</script>
+<script>
+/* ============================================================
    ETERNA CONCIERGE
    A conversational layer with two tiers:
 
@@ -1462,6 +2123,145 @@ h3{font-size:var(--t-md);line-height:1.24}
     return null;
   }
 
+  /* --- reading the request for facts, not just topic -----------------
+     A customer who says "20 tonnes from Dar es Salaam to Nairobi" has
+     already answered three questions. Pulling those out means the
+     interface can pick up where they left off instead of starting at the
+     beginning — which is the difference between a form and an assistant. */
+  var SLOTS = [
+    ["route",    /\bfrom\s+([a-z][a-z\s'\-]{2,28}?)\s+to\s+([a-z][a-z\s'\-]{2,28}?)(?=\s*(?:$|[,.;]|\bby\b|\bon\b|\bbefore\b|\bnext\b|\bthis\b))/i],
+    ["route",    /\b([a-z][a-z\s'\-]{2,28}?)\s*(?:→|->)\s*([a-z][a-z\s'\-]{2,28}?)(?=\s*(?:$|[,.;]))/i],
+    ["quantity", /\b(\d[\d,.]*)\s*(tonnes?|tons?|kgs?|kilograms?|containers?|teu|pallets?|units?|pieces|m2|sqm|square met(?:re|er)s?)\b/i],
+    ["frequency",/\b(every day|daily|every week|weekly|every monday|every tuesday|every wednesday|every thursday|every friday|every saturday|every sunday|fortnightly|every two weeks|monthly|twice a week|one[- ]off|once)\b/i],
+    ["side",     /\b(i want to buy|looking to buy|need to buy|i am buying|i'?m buying|importing|import|i want to sell|looking to sell|i am selling|i'?m selling|exporting|export)\b/i],
+    ["commodity",/\b(cashew[s]?(?: nuts?)?|sesame|maize|rice|coffee|tea|cotton|sunflower|soya|pigeon peas|beans|minerals?|gold|gypsum|timber|sugar)\b/i],
+    ["proptype", /\b(office|offices|retail|shop|warehouse|industrial|apartment|residential|house|land|plot|godown)\b/i],
+    ["propintent",/\b(let out|lease out|rent out|find space|looking for space|occupy|managed|manage(?: my)?|develop|development|buy a (?:property|house|plot))\b/i],
+    ["cleankind",/\b(deep clean|post[- ]construction|move[- ](?:in|out)|regular|contract|one[- ]off)\b/i],
+    ["mktgoal",  /\b(launch|launching|rebrand|re[- ]brand|new brand|awareness|be known|sell more|grow sales)\b/i],
+    ["when",     /\b(as soon as possible|asap|urgent|next week|this month|next month|in (?:january|february|march|april|may|june|july|august|september|october|november|december)|by (?:january|february|march|april|may|june|july|august|september|october|november|december))\b/i],
+  ];
+
+  /* Place names, written the way people write them: "Dar es Salaam", not
+     "Dar Es Salaam". Units are left alone entirely. */
+  var SMALL = { es: 1, de: 1, la: 1, le: 1, el: 1, van: 1, der: 1, den: 1, of: 1, and: 1, the: 1, upon: 1, on: 1 };
+  function titleCase(x) {
+    return String(x).trim().replace(/\s+/g, " ").split(" ").map(function (w, i) {
+      if (i && SMALL[w.toLowerCase()]) return w.toLowerCase();
+      if (/\d/.test(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ");
+  }
+  function readSlots(text) {
+    var found = {};
+    SLOTS.forEach(function (pair) {
+      if (found[pair[0]]) return;
+      var m = String(text).match(pair[1]);
+      if (!m) return;
+      if (pair[0] === "route") found.route = { from: titleCase(m[1]), to: titleCase(m[2]) };
+      else if (pair[0] === "quantity") found.quantity = m[1] + " " + m[2].toLowerCase();
+      else found[pair[0]] = m[1].toLowerCase();
+    });
+    return found;
+  }
+
+  /* Slots translated into the answers a business's request flow asks for.
+     Anything already known is not asked again. */
+  var SEED = {
+    logistics: function (f) {
+      var out = {};
+      if (f.route) { out.origin = f.route.from; out.destination = f.route.to; }
+      if (f.quantity) out.cargo = f.quantity;
+      else if (f.commodity) out.cargo = titleCase(f.commodity);
+      if (f.when) out.when = /asap|as soon|urgent/.test(f.when) ? "As soon as possible" : titleCase(f.when);
+      return out;
+    },
+    trading: function (f) {
+      var out = {};
+      if (f.side) out.side = /sell|export/.test(f.side) ? "I am selling" : "I am buying";
+      if (f.commodity) out.commodity = titleCase(f.commodity);
+      if (f.quantity) out.volume = f.quantity;
+      if (f.route) out.market = f.route.to;
+      return out;
+    },
+    marketing: function (f) {
+      var out = {};
+      if (f.mktgoal) {
+        out.goal = /rebrand|re-brand/.test(f.mktgoal) ? "Rebrand"
+          : /launch|new brand/.test(f.mktgoal) ? "Launch something new"
+          : /sell more|grow sales/.test(f.mktgoal) ? "Sell more of what we have" : "Be better known";
+      }
+      if (f.when) out.when = titleCase(f.when);
+      return out;
+    },
+    realestate: function (f) {
+      var out = {};
+      if (f.propintent) {
+        out.intent = /let out|lease out|rent out/.test(f.propintent) ? "Let out a property I own"
+          : /manage/.test(f.propintent) ? "Have mine managed"
+          : /develop/.test(f.propintent) ? "Develop a site" : "Find space to occupy";
+      }
+      if (f.proptype) {
+        out.type = /office/.test(f.proptype) ? "Office"
+          : /retail|shop/.test(f.proptype) ? "Retail"
+          : /warehouse|industrial|godown/.test(f.proptype) ? "Industrial or warehouse"
+          : /land|plot/.test(f.proptype) ? "Land" : "Residential";
+      }
+      if (f.quantity) out.size = f.quantity;
+      return out;
+    },
+    cleaning: function (f) {
+      var out = {};
+      if (f.cleankind) {
+        out.kind = /deep/.test(f.cleankind) ? "One-off deep clean"
+          : /post/.test(f.cleankind) ? "Post-construction"
+          : /move/.test(f.cleankind) ? "Move-in or move-out"
+          : /one-off|one off|once/.test(f.cleankind) ? "One-off deep clean" : "Regular contract";
+      }
+      if (f.frequency) {
+        out.when = /daily|every day/.test(f.frequency) ? "Daily"
+          : /fortnight|two weeks/.test(f.frequency) ? "Fortnightly"
+          : /one-off|one off|once/.test(f.frequency) ? "A single visit" : "Weekly";
+        if (!out.kind) out.kind = out.when === "A single visit" ? "One-off deep clean" : "Regular contract";
+      }
+      if (f.proptype) out.site = titleCase(f.proptype);
+      return out;
+    },
+  };
+  function seedFor(id, text) {
+    var fn = SEED[id];
+    var seed = fn ? fn(readSlots(text)) : {};
+    /* Only keep keys the flow actually asks about. */
+    var cfg = (D.live || {})[id];
+    if (!cfg || !cfg.flow) return {};
+    var valid = {};
+    cfg.flow.steps.forEach(function (st) { if (seed[st.id]) valid[st.id] = seed[st.id]; });
+    return valid;
+  }
+  function countKeys(o) { return Object.keys(o || {}).length; }
+
+  /* The facts can settle the business on their own. "Let out my office in
+     Masaki" contains no word from the real-estate keyword list, but the
+     intent it carries is unmistakable — so what was read outranks nothing
+     having been matched. */
+  function slotCompany(f) {
+    if (f.propintent) return "realestate";
+    if (f.side || f.commodity) return "trading";
+    if (f.cleankind) return "cleaning";
+    if (f.mktgoal) return "marketing";
+    if (f.route) return "logistics";
+    if (f.proptype && /land|plot|apartment|residential|house/.test(f.proptype)) return "realestate";
+    return null;
+  }
+  /* One resolver, used by the conversation and by the page's own matcher,
+     so the two can never disagree about where a request belongs. */
+  function resolve(text) {
+    var svc = detectService(norm(text));
+    if (svc) return { company: svc.company.id, matched: svc.matched };
+    var id = slotCompany(readSlots(text));
+    return id && byId[id] ? { company: id, matched: [] } : null;
+  }
+
   var INTENTS = [
     ["greeting",  /^ (hi|hey|hello|habari|mambo|jambo|salam|good (morning|afternoon|evening))\b/],
     /* Questions we genuinely cannot answer. Caught deliberately so the
@@ -1491,19 +2291,16 @@ h3{font-size:var(--t-md);line-height:1.24}
   /* --- reply shape ------------------------------------------------
      Every reply carries actions, so the visitor is never left staring at
      a full stop. */
-  function reply(text, actions) { return { text: text, actions: actions || [] }; }
+  function reply(text, actions, ui) { return { text: text, actions: actions || [], ui: ui || [] }; }
 
   var A = {
-    explore: function (id) { return { label: "Explore " + byId[id].name, go: "#ecosystem", select: id }; },
+    /* Straight inside the company, not "here is the section, go and find it". */
+    explore: function (id) { return { label: "Go inside " + byId[id].name.split(" ")[0], industry: id, select: id }; },
     quote:   function (id) { return { label: "Request a quotation", go: "#quote", quote: id || memory.service }; },
     team:    function () { return { label: "Speak with the right team", go: "#contact", need: memory.service || "unsure" }; },
     group:   function () { return { label: "See the whole group", go: "#ecosystem" }; },
     how:     function () { return { label: "How we work", go: "#approach" }; },
   };
-
-  function companyBrief(c) {
-    return c.outcome + " It covers " + c.capabilities.slice(0, 3).join(", ").toLowerCase() + ".";
-  }
 
   /* --- dialogue policy --------------------------------------------
      Ask at most one question at a time, and only for something not
@@ -1587,7 +2384,8 @@ h3{font-size:var(--t-md);line-height:1.24}
           return reply("I can start that. I'll prepare a quotation request for "
             + byId[memory.service].name + " — you add the lines you need and it goes to the team priced. "
             + "Nobody here quotes a number before understanding the job, so the figures come back to you in writing.",
-            [A.quote(memory.service), A.team()]);
+            [A.quote(memory.service), A.team()],
+            [{ type: "actions", company: memory.service }]);
         }
         return reply("Happy to. Which part of the group is it for? If you're not sure, describe the job and "
           + "I'll place it.", COMPANIES.map(function (c) { return { label: c.name, say: "I need " + c.name.toLowerCase() }; }).slice(0, 5));
@@ -1616,14 +2414,51 @@ h3{font-size:var(--t-md);line-height:1.24}
           [A.team(), A.quote(null)]);
     }
 
-    /* No explicit intent — work from the service if we have one. */
-    if (memory.service) return memory.direction ? recommend() : askFollowUp();
+    /* No explicit intent — work from the service if we have one. Rather
+       than describe the company, open it. */
+    if (svc) return enterBusiness(svc.company.id, svc.matched, input);
+    var implied = slotCompany(readSlots(input));
+    if (implied) return enterBusiness(implied, null, input);
+    if (memory.service) return enterBusiness(memory.service, null, input);
 
     /* Nothing recognised. Say so gracefully and keep the conversation open. */
     return reply("I may need a little more detail to point you in the right direction. Tell me what needs "
       + "doing — moving something, sourcing it, building it, marketing it or maintaining it — and I'll take "
       + "it from there.",
       [{ label: "What does Eterna do?", say: "What does Eterna do?" }, A.group(), A.team()]);
+  }
+
+  /* --- the agentic turn --------------------------------------------
+     Where a conventional assistant would name a department and stop, this
+     one decides which business the request belongs to, says why, and then
+     assembles that business's interface in the conversation: the actions
+     you can take, or — if you have already given enough away — the request
+     itself, part-filled, at the question you have not answered yet. */
+  function joinList(xs) {
+    if (xs.length === 1) return "“" + xs[0] + "”";
+    return xs.slice(0, -1).map(function (x) { return "“" + x + "”"; }).join(", ")
+      + " and “" + xs[xs.length - 1] + "”";
+  }
+  function enterBusiness(id, matched, raw) {
+    var c = byId[id];
+    var seed = seedFor(id, raw || "");
+    var n = countKeys(seed);
+    var why = (matched && matched.length)
+      ? "You mentioned " + joinList(matched.slice(0, 3)) + ", which is " + c.name + "'s work."
+      : "From what you have described, this is " + c.name + "'s work.";
+    var ui = [{ type: "match", company: id, why: why }];
+    var text;
+    if (n) {
+      ui.push({ type: "flow", company: id, seed: seed });
+      text = "Matched to " + c.name + ". " + why + " I have taken "
+        + (n === 1 ? "one detail" : n + " details") + " straight from what you wrote, so we can carry on "
+        + "from there rather than start again.";
+    } else {
+      ui.push({ type: "actions", company: id });
+      text = "Matched to " + c.name + ". " + why + " Tell me which of these you want and I will set it up.";
+    }
+    remember({ service: id });
+    return reply(text, [A.explore(id), A.quote(id), A.team()], ui);
   }
 
   function askFollowUp() {
@@ -1638,14 +2473,7 @@ h3{font-size:var(--t-md);line-height:1.24}
   }
 
   function recommend() {
-    var c = byId[memory.service];
-    var context = [];
-    if (memory.industry) context.push(memory.industry.toLowerCase());
-    if (memory.direction) context.push(String(memory.direction));
-    var why = context.length ? "Based on " + context.join(" and ") + ", " : "Based on what you've described, ";
-    return reply(why + c.name + " is the right fit. " + companyBrief(c)
-      + " I can show you how it sits in the group, or start a quotation request with your details already captured.",
-      [A.explore(c.id), A.quote(c.id), A.team()]);
+    return enterBusiness(memory.service, null, memory.direction || "");
   }
 
   /* --- live model, with silent fallback ---------------------------- */
@@ -1659,9 +2487,10 @@ h3{font-size:var(--t-md);line-height:1.24}
       .then(function (d) {
         if (!d || !d.reply) return null;
         liveMode = true;
-        /* Keep the local engine's actions so a model reply is still actionable. */
+        /* The model writes the words; the local engine still decides which
+           interface belongs with them, so a live reply is just as actionable. */
         var local = respond(text);
-        return reply(d.reply, local.actions);
+        return reply(d.reply, local.actions, local.ui);
       })
       .catch(function () { return null; });
   }
@@ -1683,12 +2512,23 @@ h3{font-size:var(--t-md);line-height:1.24}
         return out;
       });
     },
+    /* The tree and the assistant are one product: when a visitor walks into
+       a business through the diagram, the assistant knows they are there. */
+    enter: function (id) { if (byId[id]) remember({ service: id }); },
+    /* Given free text, what the assistant would read out of it. Exposed so
+       the page's own matcher and the conversation agree. */
+    read: function (text) {
+      var r = resolve(text);
+      return r ? { company: r.company, matched: r.matched, seed: seedFor(r.company, text) } : null;
+    },
     /* Used by the quote builder to pre-fill from the conversation. */
     context: function () { return { service: memory.service, industry: memory.industry, note: memory.direction }; },
   };
 })();
+
 </script>
-<script>/* ============================================================
+<script>
+/* ============================================================
    QUOTATION REQUEST BUILDER
    Assembles an itemised quotation request and renders it as a document
    the visitor can print or save as PDF.
@@ -1872,7 +2712,7 @@ h3{font-size:var(--t-md);line-height:1.24}
 
     $("q-doc").innerHTML =
       "<header class='doc__head'>" +
-        "<div><img src='" + ("images/eterna-logo.png") +
+        "<div><img src='" + (window.ETERNA_IMG && window.ETERNA_IMG["eterna-logo.png"] || "images/eterna-logo.png") +
           "' alt='" + esc(ORG.name) + "' width='480' height='158' class='doc__logo'>" +
           "<p class='doc__org'>" + esc(ORG.legalName) + "<br>" + esc(ORG.poBox) + ", " + esc(ORG.city) + ", " + esc(ORG.country) +
           "<br>" + esc(ORG.phone) + " · " + esc(ORG.email) + "</p></div>" +
@@ -1945,8 +2785,10 @@ h3{font-size:var(--t-md);line-height:1.24}
   renderLines();
   step(0, false);
 })();
+
 </script>
-<script>/* ============================================================
+<script>
+/* ============================================================
    ETERNA HOLDINGS — site behaviour
    No dependencies. Everything degrades: with JS off the page is
    still readable, navigable and the contact details still work.
@@ -1960,36 +2802,23 @@ h3{font-size:var(--t-md);line-height:1.24}
   var reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
 
   /* --- opening reveal --------------------------------------------
-     Runs once per session and only when motion is welcome. The page below
-     is fully rendered and interactive throughout, so nothing is gated
-     behind the animation — it is decoration over a working site. */
+     The page rises into place: the hero's own layers lift from below while
+     a single flat veil fades off the top. No panels part, nothing slides
+     in from the side, and nothing is gated behind it — the site is
+     rendered and interactive from the first frame. Once per session, and
+     only when motion is welcome. */
   (function () {
-    var curtain = $("#curtain"), welcome = $("#welcome");
-    if (!curtain) return;
+    var veil = $("#veil");
+    if (!veil) return;
     var seen = false;
     try { seen = sessionStorage.getItem("eterna-seen") === "1"; } catch (e) {}
-    if (seen || reduced) { curtain.hidden = true; if (welcome) welcome.hidden = true; return; }
-    try { sessionStorage.setItem("eterna-seen", "1"); } catch (e) {}
-
-    document.body.style.overflow = "hidden";
-    curtain.classList.add("is-playing");
-    var done = false;
-    function finish() {
-      if (done) return;
-      done = true;
-      curtain.classList.add("is-opening");
-      if (welcome) { welcome.hidden = false; welcome.classList.add("is-on"); }
-      document.body.style.overflow = "";
-      window.setTimeout(function () { curtain.hidden = true; }, 1300);
-      window.setTimeout(function () { if (welcome) welcome.hidden = true; }, 2600);
+    if (seen || reduced) {
+      veil.hidden = true;
+      $$(".rise-in").forEach(function (el) { el.classList.remove("rise-in"); });
+      return;
     }
-    var timer = window.setTimeout(finish, 1750);
-    var skip = $("#curtain-skip");
-    if (skip) skip.addEventListener("click", function () { window.clearTimeout(timer); finish(); });
-    document.addEventListener("keydown", function (e) {
-      if (!done && (e.key === "Escape" || e.key === "Enter" || e.key === " ")) { window.clearTimeout(timer); finish(); }
-    });
-    curtain.addEventListener("click", function () { window.clearTimeout(timer); finish(); });
+    try { sessionStorage.setItem("eterna-seen", "1"); } catch (e) {}
+    window.setTimeout(function () { veil.hidden = true; }, 900);
   })();
 
   /* --- the constellation ------------------------------------------
@@ -2275,22 +3104,27 @@ h3{font-size:var(--t-md);line-height:1.24}
      works with, and swaps the detail panel. Keyboard: arrows move
      between nodes, matching the tablist pattern. */
   var DATA = window.ETERNA_DATA || { companies: [] };
+  var byId = {};
+  DATA.companies.forEach(function (c) { byId[c.id] = c; });
+
+  function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+  /* esc() leaves quotes alone, which is fine in text but not in an attribute. */
+  function attr(s) { return esc(s).replace(/"/g, "&quot;"); }
+  /* Resolves an image name to a URL. A single-file build can supply
+     window.ETERNA_IMG to map names straight to embedded data URIs. */
+  function asset(name, ext) {
+    var map = window.ETERNA_IMG;
+    if (map && map[name + "." + ext]) return map[name + "." + ext];
+    return "images/" + name + "." + ext;
+  }
+  var ARROW = '<svg width="17" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true">'
+    + '<path d="M0 4h16M12.5.5 16.5 4l-4 3.5" stroke="currentColor" stroke-width="1.3"/></svg>';
+
   var eco = $("#eco");
   if (eco) {
     var nodes = $$(".eco__node", eco);
     var wires = $$(".eco__wire", eco);
     var panel = $("#eco-panel");
-    var byId = {};
-    DATA.companies.forEach(function (c) { byId[c.id] = c; });
-
-    function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
-    /* Resolves an image name to a URL. A single-file build can supply
-       window.ETERNA_IMG to map names straight to embedded data URIs. */
-    function asset(name, ext) {
-      var map = window.ETERNA_IMG;
-      if (map && map[name + "." + ext]) return map[name + "." + ext];
-      return "images/" + name + "." + ext;
-    }
 
     function select(id, focus) {
       var c = byId[id];
@@ -2342,17 +3176,25 @@ h3{font-size:var(--t-md);line-height:1.24}
             c.related.map(function (r) { return byId[r] ? esc(byId[r].name) : ""; }).filter(Boolean).join(" · ") +
           '</dd></div>' +
         '</dl>' +
-        '<a class="btn btn--primary" href="#contact" data-cta="ecosystem-' + esc(c.id) + '" data-need="' + esc(c.id) + '">' +
-          'Start with ' + esc(c.name) +
-          '<svg width="17" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M0 4h16M12.5.5 16.5 4l-4 3.5" stroke="currentColor" stroke-width="1.3"/></svg>' +
-        '</a>';
+        '<div class="eco__cta">' +
+          '<button class="btn btn--primary" type="button" data-industry="' + esc(c.id) + '" ' +
+            'data-cta="ecosystem-open-' + esc(c.id) + '">Go inside ' + esc(c.name.split(" ")[0]) + ARROW + '</button>' +
+          '<a class="btn btn--ghost" href="#contact" data-cta="ecosystem-' + esc(c.id) + '" data-need="' + esc(c.id) + '">' +
+            'Start with ' + esc(c.name) + '</a>' +
+        '</div>';
       window.requestAnimationFrame(function () { panel.classList.remove("is-swapping"); });
       track("company_select", id);
       if (focus) { var sel = nodes.filter(function (n) { return n.dataset.id === id; })[0]; if (sel) sel.focus(); }
     }
 
     nodes.forEach(function (n, i) {
-      n.addEventListener("click", function () { select(n.dataset.id); });
+      /* Hover previews in the panel; pressing it takes you inside. Nobody
+         should have to select a company, scroll off to find its section,
+         and scroll again. */
+      n.addEventListener("click", function () {
+        select(n.dataset.id);
+        if (window.eternaIndustry) window.eternaIndustry.open(n.dataset.id, n);
+      });
       n.addEventListener("mouseenter", function () { select(n.dataset.id); });
       n.addEventListener("keydown", function (e) {
         var d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1
@@ -2365,43 +3207,748 @@ h3{font-size:var(--t-md);line-height:1.24}
     select(nodes[0] && nodes[0].dataset.id);
   }
 
-  /* --- concierge ---------------------------------------------------
-     Deterministic keyword routing, and it shows its working. This is not
-     dressed up as AI; the AI handoff sits next to it as its own button. */
-  var cForm = $("#need-form"), cInput = $("#need-input"), cResult = $("#need-result");
-  function route(text) {
-    var t = " " + text.toLowerCase().replace(/[^a-z0-9\s]/g, " ") + " ";
-    var best = null, bestScore = 0, bestHits = [];
-    DATA.companies.forEach(function (c) {
-      var hits = c.keywords.filter(function (k) { return t.indexOf(" " + k) > -1; });
-      var score = hits.length;
-      if (score > bestScore) { bestScore = score; best = c; bestHits = hits; }
+  /* --- the industry stage ------------------------------------------
+     A company is not a section you scroll to. Pressing one opens it over
+     the page, expanding from the point that was pressed, and lays out the
+     whole journey in one place: what it handles, what it does, the
+     problems it is usually called about and how they are answered, what
+     it needs from you, and what to do next. Escape or the back button
+     returns you exactly where you were. */
+  (function () {
+    var stage = $("#ind-stage"), sheet = $("#ind-sheet");
+    if (!stage || !sheet) return;
+    var opener = null, current = null, lockedAt = 0, closing = false, pushed = false;
+    /* A request the visitor has already started elsewhere — on the page's
+       own matcher, or in the conversation — carried in so they land on the
+       question they have not answered rather than at the beginning. */
+    var pendingFlow = null;
+
+    function list(items, cls) {
+      return '<ul class="' + cls + '">' + items.map(function (x) {
+        return '<li>' + esc(x) + '</li>';
+      }).join("") + '</ul>';
+    }
+
+    function render(c) {
+      var rel = c.related.map(function (r) { return byId[r]; }).filter(Boolean);
+      sheet.innerHTML =
+        '<div class="ind-stage__in">' +
+          '<button class="ind-back" type="button" data-ind-close>' +
+            '<svg width="17" height="8" viewBox="0 0 18 8" fill="none" aria-hidden="true">' +
+            '<path d="M18 4H2M5.5 7.5 1.5 4l4-3.5" stroke="currentColor" stroke-width="1.3"/></svg>' +
+            'Back to the group</button>' +
+
+          '<div class="ind-head">' +
+            '<div>' +
+              '<p class="eyebrow">' + esc(c.short) + '</p>' +
+              '<h2 id="ind-title" tabindex="-1">' + esc(c.name) + '</h2>' +
+              '<p class="lead">' + esc(c.outcome) + '</p>' +
+            '</div>' +
+            (c.image ? '<picture class="ind-shot">' +
+                '<source srcset="' + esc(asset(c.image, "webp")) + '" type="image/webp">' +
+                '<img src="' + esc(asset(c.image, "jpg")) + '" alt="" width="1200" height="800" ' +
+                  'loading="lazy" decoding="async"' +
+                  (c.focal ? ' style="object-position:' + esc(c.focal) + '"' : '') + '>' +
+              '</picture>' : '') +
+          '</div>' +
+
+          '<div class="ind-grid">' +
+            '<div class="ind-block">' +
+              '<h3>What we handle</h3>' +
+              '<div class="tags">' + c.serves.map(function (x) {
+                return '<span class="tag">' + esc(x) + '</span>'; }).join("") + '</div>' +
+            '</div>' +
+            '<div class="ind-block">' +
+              '<h3>What we do</h3>' +
+              '<div class="tags">' + c.capabilities.map(function (x) {
+                return '<span class="tag tag--gold">' + esc(x) + '</span>'; }).join("") + '</div>' +
+            '</div>' +
+          '</div>' +
+
+          (c.problems && c.problems.length ?
+          '<div class="ind-block" style="margin-top:var(--s5)">' +
+            '<h3>What people call us about</h3>' +
+            '<div class="ind-prob">' + c.problems.map(function (x) {
+              return '<div><p class="ind-q">' + esc(x.p) + '</p><p class="ind-a">' + esc(x.s) + '</p></div>';
+            }).join("") + '</div>' +
+          '</div>' : '') +
+
+          '<div class="ind-grid">' +
+            '<div class="ind-block">' +
+              '<h3>Typical work</h3>' + list(c.useCases, "ind-list") +
+            '</div>' +
+            '<div class="ind-block">' +
+              '<h3>What we need from you to start</h3>' +
+              (c.needs && c.needs.length ? list(c.needs, "ind-list")
+                : '<p class="ind-act__note">Tell us what you are trying to move, sell, let or clean, and we will ' +
+                  'come back with what we need.</p>') +
+              (rel.length ? '<h3 style="margin-top:var(--s4)">Often runs with</h3><div class="tags">' +
+                rel.map(function (r) {
+                  return '<button class="tag" type="button" data-industry="' + esc(r.id) + '">' +
+                    esc(r.name) + '</button>'; }).join("") + '</div>' : '') +
+            '</div>' +
+          '</div>' +
+
+          /* ETERNA LIVE. The same operational layer in every business, so
+             a customer learns one interface rather than five. */
+          '<div class="ind-live">' +
+            '<div class="ind-live__intro">' +
+              '<h3>Eterna Live</h3>' +
+              '<p class="ind-live__mark"><i aria-hidden="true"></i>' + esc(cfgNoun(c.id)) + ' tracking</p>' +
+              '<p>Work with us and you follow it in the same place, whichever company is doing it — ' +
+                'one reference, one set of stages, one contact. Below is how a ' +
+                esc(cfgNoun(c.id).toLowerCase()) + ' would appear to you.</p>' +
+            '</div>' +
+            '<div data-live-card="' + esc(c.id) + '"></div>' +
+          '</div>' +
+
+          '<div class="ind-do" id="ind-do" data-live-acts="' + esc(c.id) + '"></div>' +
+
+          '<div class="ind-act">' +
+            '<a class="btn btn--primary" href="#contact" data-ind-go data-need="' + esc(c.id) + '" ' +
+              'data-cta="industry-start-' + esc(c.id) + '">Start with ' + esc(c.name) + ARROW + '</a>' +
+            '<button class="btn btn--ghost" type="button" data-ind-go data-quote="' + esc(c.id) + '" ' +
+              'data-cta="industry-quote-' + esc(c.id) + '">Build a quotation request</button>' +
+            '<button class="btn btn--ghost" type="button" data-ind-go ' +
+              'data-ask="What does ' + attr(c.name) + ' actually do?">Ask the assistant</button>' +
+            '<p class="ind-act__note">A quotation request is a prototype document: it lists what you need and ' +
+              'leaves every price to be confirmed by us. It carries no tax or accounting standing.</p>' +
+          '</div>' +
+        '</div>';
+      hydrateLive(sheet);
+    }
+
+    /* The noun this business tracks — Shipment, Trade, Campaign, Property,
+       Service. One layer, named in the customer's language. */
+    function cfgNoun(id) {
+      var cfg = window.EternaLive && window.EternaLive.config(id);
+      return (cfg && cfg.noun) || "Job";
+    }
+
+    /* Live components are real DOM, not markup strings: they carry state
+       and will later carry a data source. The markup leaves them a slot. */
+    function hydrateLive(root) {
+      if (!window.EternaLive) return;
+      $$("[data-live-card]", root).forEach(function (slot) {
+        var node = window.EternaLive.card(slot.getAttribute("data-live-card"));
+        if (node) slot.appendChild(node); else slot.remove();
+      });
+      $$("[data-live-acts]", root).forEach(function (slot) {
+        var node = window.EternaLive.actions(slot.getAttribute("data-live-acts"));
+        if (node) slot.appendChild(node); else slot.remove();
+      });
+    }
+
+    function open(id, origin) {
+      var c = byId[id];
+      if (!c) return;
+      if (current === id && stage.classList.contains("is-open")) return;
+      current = id;
+      closing = false;
+      opener = origin || document.activeElement;
+
+      /* Expand from the thing that was pressed, so the movement reads as
+         entering that company rather than as a panel arriving. */
+      var ox = "50%", oy = "42%";
+      if (origin && origin.getBoundingClientRect) {
+        var r = origin.getBoundingClientRect();
+        ox = ((r.left + r.width / 2) / window.innerWidth * 100).toFixed(1) + "%";
+        oy = ((r.top + r.height / 2) / window.innerHeight * 100).toFixed(1) + "%";
+      }
+      sheet.style.setProperty("--ox", ox);
+      sheet.style.setProperty("--oy", oy);
+      if (c.accent) {
+        stage.style.setProperty("--accent", c.accent);
+        stage.style.setProperty("--accent-text", c.accentText || c.accent);
+        stage.style.setProperty("--accent-line", "color-mix(in srgb, " + c.accent + " 50%, transparent)");
+        stage.style.setProperty("--accent-soft", "color-mix(in srgb, " + c.accent + " 16%, transparent)");
+      }
+
+      /* If the assistant sent you here, put it away first — otherwise it is
+         left open behind a full-screen panel. */
+      var cp = document.getElementById("chat");
+      if (cp && !cp.hidden) { var cc = document.getElementById("chat-close"); if (cc) cc.click(); }
+
+      /* One history entry for the whole stage, so the phone's back gesture
+         returns to the group rather than leaving the site. */
+      if (!pushed) { try { history.pushState({ eternaIndustry: 1 }, ""); pushed = true; } catch (e) {} }
+
+      render(c);
+      lockedAt = window.pageYOffset;
+
+      /* The signature move. The pressed node detaches and expands until it
+         is the screen; the environment then appears from inside it. Only
+         when there is a node to expand from and motion is welcome —
+         otherwise the panel simply arrives, which is what a screen reader
+         or a reduced-motion visitor gets either way. */
+      var node = origin && origin.classList && origin.classList.contains("eco__node") ? origin : null;
+      if (!reduced && node) enterFrom(node, c, reveal);
+      else { resetTree(); reveal(); }
+      /* One product, not two: walk into a business through the diagram and
+         the assistant already knows where you are standing. */
+      if (window.EternaConcierge && window.EternaConcierge.enter) window.EternaConcierge.enter(id);
+      track("industry_open", id);
+    }
+
+    /* Reveals the business environment. Called on its own, or by the morph
+       once the expanding node has covered the screen. */
+    function reveal() {
+      stage.hidden = false;
+      stage.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      sheet.scrollTop = 0;
+      window.requestAnimationFrame(function () {
+        stage.classList.add("is-in");
+        var h = $("#ind-title", sheet);
+        if (h) h.focus({ preventScroll: true }); else sheet.focus({ preventScroll: true });
+        if (pendingFlow && window.eternaAct) {
+          var host = $("#ind-do", sheet);
+          if (host) {
+            window.eternaAct("flow", current, host, { seed: pendingFlow });
+            host.scrollIntoView({ behavior: "auto", block: "center" });
+          }
+          pendingFlow = null;
+        }
+      });
+    }
+
+    /* --- the node expansion -----------------------------------------
+       A circle is cloned over the pressed node, the tree behind it falls
+       away into depth, and the circle scales until it covers every corner
+       of the viewport. Transform and opacity only — no layout runs during
+       the movement, so it holds its frame rate on a phone. */
+    var morph = null, morphTitle = null, morphVeil = null, morphTimers = [];
+    function clearMorph() {
+      morphTimers.forEach(window.clearTimeout);
+      morphTimers = [];
+      if (morph) { morph.remove(); morph = null; }
+      if (morphTitle) { morphTitle.remove(); morphTitle = null; }
+      if (morphVeil) { morphVeil.remove(); morphVeil = null; }
+    }
+    /* Everything that is not this branch dims away, so the expanding circle
+       is the only lit thing on the screen. */
+    function makeVeil() {
+      var v = document.createElement("div");
+      v.className = "morph-veil";
+      v.setAttribute("aria-hidden", "true");
+      document.body.appendChild(v);
+      return v;
+    }
+    /* Where the circle should start. Normally the node you pressed. When
+       the assistant sends you in the tree may be off-screen, so it starts
+       from the middle instead — the movement stays the same either way. */
+    function rectFor(node) {
+      var r = node.getBoundingClientRect();
+      if (r.width > 8 && r.bottom > 0 && r.top < window.innerHeight) return r;
+      var d = Math.min(window.innerWidth, window.innerHeight) * 0.16;
+      return { left: (window.innerWidth - d) / 2, top: (window.innerHeight - d) / 2, width: d, height: d };
+    }
+    function coverScale(r) {
+      var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      var w = window.innerWidth, h = window.innerHeight, far = 0;
+      [[0, 0], [w, 0], [0, h], [w, h]].forEach(function (p) {
+        far = Math.max(far, Math.hypot(p[0] - cx, p[1] - cy));
+      });
+      return (far * 2) / r.width + 0.08;
+    }
+    function makeMorph(r, c) {
+      var m = document.createElement("div");
+      m.className = "morph";
+      m.setAttribute("aria-hidden", "true");
+      m.style.left = r.left + "px";
+      m.style.top = r.top + "px";
+      m.style.width = r.width + "px";
+      m.style.height = r.height + "px";
+      m.style.setProperty("--accent", c.accent);
+      m.style.setProperty("--k", coverScale(r).toFixed(2));
+      document.body.appendChild(m);
+      return m;
+    }
+    /* Puts the diagram back the way it was: nothing receded, nothing
+       standing in for a node. */
+    function resetTree() {
+      if (!eco) return;
+      eco.classList.remove("is-entering");
+      $$(".eco__node.is-launch", eco).forEach(function (n) { n.classList.remove("is-launch"); });
+    }
+
+    function enterFrom(node, c, done) {
+      clearMorph();
+      resetTree();
+      morphVeil = makeVeil();
+      morph = makeMorph(rectFor(node), c);
+
+      morphTitle = document.createElement("div");
+      morphTitle.className = "morph__title";
+      morphTitle.setAttribute("aria-hidden", "true");
+      morphTitle.style.setProperty("--accent-text", c.accentText || c.accent);
+      morphTitle.innerHTML = "<div><b>" + esc(c.name) + "</b><span>Eterna Holdings</span></div>";
+      document.body.appendChild(morphTitle);
+
+      if (eco) eco.classList.add("is-entering");
+      node.classList.add("is-launch");
+
+      /* Two frames: one to commit the start state, one to run from it. */
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          if (!morph) return;
+          morphVeil.classList.add("is-on");
+          morph.classList.add("is-open");
+          morphTitle.classList.add("is-on");
+        });
+      });
+
+      var t = function (fn, ms) { morphTimers.push(window.setTimeout(fn, ms)); };
+      /* The environment appears while the circle still fills the screen,
+         so it reads as emerging from inside the node rather than as a new
+         page arriving over it. */
+      t(function () { if (morphTitle) morphTitle.classList.remove("is-on"); done(); }, 390);
+      t(function () { if (morph) morph.classList.add("is-gone"); }, 700);
+      t(clearMorph, 1000);
+    }
+
+    /* The way back out: the screen contracts to the node it came from and
+       the tree rises out of depth to meet it. */
+    function leaveTo(node, c) {
+      clearMorph();
+      morphVeil = makeVeil();
+      morphVeil.classList.add("is-on");
+      morph = makeMorph(rectFor(node), c);
+      morph.style.transition = "none";
+      morph.classList.add("is-open");
+      void morph.offsetWidth;              /* commit the expanded state */
+      morph.style.transition = "";
+      window.requestAnimationFrame(function () {
+        if (morph) morph.classList.remove("is-open");
+        if (morphVeil) morphVeil.classList.remove("is-on");
+      });
+      var t = function (fn, ms) { morphTimers.push(window.setTimeout(fn, ms)); };
+      t(resetTree, 180);
+      t(function () { if (morph) morph.classList.add("is-gone"); }, 430);
+      t(clearMorph, 760);
+    }
+
+    function close(fromHistory) {
+      if (!stage.classList.contains("is-open")) return;
+      closing = true;
+      if (pushed) { pushed = false; if (!fromHistory) { try { history.back(); } catch (e) {} } }
+      var was = current, c = byId[was];
+      stage.classList.remove("is-in");
+      document.body.style.overflow = "";
+      var node = eco && was ? eco.querySelector('.eco__node[data-id="' + was + '"]') : null;
+      /* Out the way it came in, so the group is where you left it. */
+      if (!reduced && node && c) leaveTo(node, c);
+      else { clearMorph(); resetTree(); }
+      window.setTimeout(function () {
+        stage.classList.remove("is-open");
+        stage.hidden = true;
+        current = null;
+      }, reduced ? 0 : 420);
+      if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
+      opener = null;
+      if (Math.abs(window.pageYOffset - lockedAt) > 2) window.scrollTo(0, lockedAt);
+    }
+
+    /* Anything on the page can send a visitor inside a company. */
+    document.addEventListener("click", function (e) {
+      var el = e.target.closest("[data-industry]");
+      if (!el) return;
+      e.preventDefault();
+      var id = el.getAttribute("data-industry");
+      var carried = el.getAttribute("data-flow-seed");
+      if (carried) { try { pendingFlow = JSON.parse(carried); } catch (err) { pendingFlow = null; } }
+      /* Already inside a business — moving sideways to a neighbour swaps the
+         content in place. From outside, go in through the tree, so every
+         route into a business looks the same. */
+      if (stage.classList.contains("is-open") || el.classList.contains("eco__node")) { open(id, el); return; }
+      var seed = pendingFlow; pendingFlow = null;
+      window.eternaGoto({ industry: id, flowSeed: seed });
     });
-    return { company: best, hits: bestHits.slice(0, 4) };
+    stage.addEventListener("click", function (e) {
+      if (e.target.closest("[data-ind-close]")) { e.preventDefault(); close(); return; }
+      /* The actions inside lead somewhere else on the page — step out of the
+         way first so the visitor sees where they landed. Closed without
+         unwinding history: the click is about to navigate the page itself,
+         and two history operations at once fight. */
+      if (e.target.closest("[data-ind-go]")) close(true);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && stage.classList.contains("is-open")) { e.stopPropagation(); close(); }
+    });
+    /* Keep the tab ring inside the sheet while it is over the page. */
+    document.addEventListener("focusin", function (e) {
+      if (closing || !stage.classList.contains("is-open")) return;
+      if (!stage.contains(e.target)) sheet.focus({ preventScroll: true });
+    });
+
+    window.addEventListener("popstate", function () {
+      if (stage.classList.contains("is-open")) close(true);
+    });
+
+    window.eternaIndustry = {
+      open: open,
+      close: function () { close(); },
+      queueFlow: function (seed) { pendingFlow = seed && Object.keys(seed).length ? seed : null; },
+    };
+  })();
+
+  /* --- what you can do inside a business -----------------------------
+     One handler for all five. Each action either does something real
+     (assemble a request, open the quotation builder, reach a person) or
+     says plainly that it needs a system this site is not yet connected to.
+     Nothing here claims to have booked, sent or tracked anything. */
+  (function () {
+    if (!window.EternaLive) return;
+    var L = window.EternaLive;
+    var ORG = (window.ETERNA_DATA || {}).org || {};
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+    function backBar(host, id, ctx) {
+      var b = el("button", "lv-flow__back", "← All actions");
+      b.type = "button";
+      b.addEventListener("click", function () { paintActions(host, id, ctx); });
+      return b;
+    }
+    function paintActions(host, id, ctx) {
+      host.innerHTML = "";
+      var node = L.actions(id);
+      if (node) host.appendChild(node);
+      focusFirst(host);
+      if (ctx && ctx.onPaint) ctx.onPaint();
+    }
+    function focusFirst(host) {
+      var f = host.querySelector("button, input, a");
+      if (f) f.focus({ preventScroll: true });
+    }
+
+    /* The end of a request flow. The answers are carried into the enquiry
+       the site can genuinely deliver, rather than dropped. */
+    function handoff(id, answers, cfg) {
+      var lines = [cfg.flow.title + " — assembled on the website", ""];
+      (cfg.flow.steps || []).forEach(function (st) {
+        if (answers[st.id]) lines.push(st.label + ": " + answers[st.id]);
+      });
+      var msg = $("#f-message");
+      var pick = document.querySelector('#flow .pick[data-value="' + id + '"]');
+      if (msg && pick) {
+        msg.value = lines.join("\n");
+        if (window.eternaIndustry) window.eternaIndustry.close();
+        window.setTimeout(function () {
+          pick.click();
+          var target = document.getElementById("contact");
+          if (target) target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+        }, reduced ? 0 : 380);
+      } else if (window.eternaGoto) {
+        window.eternaGoto({ go: "#contact", need: id });
+      }
+      track("live_request", id);
+    }
+
+    /* Each kind, and what it honestly amounts to today. */
+    var KIND = {
+      flow: function (host, id, ctx) {
+        var flow = L.Flow(id, function (answers, cfg) { handoff(id, answers, cfg); }, ctx && ctx.seed);
+        host.innerHTML = "";
+        host.appendChild(flow.el);
+        host.appendChild(backBar(host, id, ctx));
+      },
+
+      lookup: function (host, id, ctx) {
+        var cfg = L.config(id);
+        host.innerHTML = "";
+        var form = el("form", "lv-flow");
+        form.appendChild(el("p", "lv-flow__title", "Find a " + cfg.noun.toLowerCase()));
+        var ask = el("p", "lv-flow__ask", "What is the reference?");
+        form.appendChild(ask);
+        var row = el("div", "lv-flow__row");
+        var input = el("input", "lv-flow__input");
+        input.type = "text";
+        input.placeholder = cfg.prefix + "-0000";
+        input.setAttribute("aria-label", cfg.noun + " reference");
+        var go = el("button", "lv-flow__go", "Look it up");
+        go.type = "submit";
+        row.appendChild(input); row.appendChild(go);
+        form.appendChild(row);
+        var out = el("div");
+        form.appendChild(out);
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          out.innerHTML = "";
+          /* The honest answer. There is no operations system behind this
+             site yet, so no reference can be looked up — and we do not
+             pretend one was found. What we can show is the shape of it. */
+          out.appendChild(L.notice(
+            "Not connected yet",
+            "Eterna Live is built and ready, but this site is not yet wired to the operations system, so "
+            + "there is nothing to look " + (input.value.trim() ? "“" + input.value.trim() + "”" : "that")
+            + " up in. Until it is, the team will tell you where it stands — and this is the view you would get.",
+            [{ label: "Ask the team where it stands", primary: true,
+               attrs: { "data-ind-go": "", "data-need": id } },
+             { label: "Call the office", href: "tel:" + String(ORG.phone || "").replace(/\s/g, "") }]));
+          var demo = L.card(id);
+          if (demo) out.appendChild(demo);
+        });
+        host.appendChild(form);
+        host.appendChild(backBar(host, id, ctx));
+        input.focus({ preventScroll: true });
+      },
+
+      upload: function (host, id, ctx) {
+        var cfg = L.config(id);
+        host.innerHTML = "";
+        host.appendChild(L.notice(
+          "Send them to us directly",
+          "Document upload is part of Eterna Live and is not connected on this site yet — so rather than "
+          + "take a file and drop it, send it where a person will actually read it. Email works, and so does "
+          + "attaching everything to the enquiry.",
+          [{ label: "Email the documents", primary: true, href: "mailto:" + (ORG.email || "") +
+              "?subject=" + encodeURIComponent("Documents — " + (byId[id] || {}).name) },
+           { label: "Start the enquiry instead", attrs: { "data-ind-go": "", "data-need": id } }]));
+        var need = (byId[id] || {}).needs || [];
+        if (need.length) {
+          var box = el("div", "ind-block");
+          box.style.marginTop = "var(--s3)";
+          box.appendChild(el("h3", null, "What to send"));
+          var ul = el("ul", "ind-list");
+          need.forEach(function (n) { ul.appendChild(el("li", null, n)); });
+          box.appendChild(ul);
+          host.appendChild(box);
+        }
+        host.appendChild(backBar(host, id, ctx));
+        focusFirst(host);
+      },
+
+      quote: function (host, id, ctx) {
+        if (window.EternaQuote) {
+          if (window.eternaIndustry) window.eternaIndustry.close();
+          window.setTimeout(function () { window.EternaQuote.open(id); }, reduced ? 0 : 380);
+          return;
+        }
+        if (window.eternaGoto) window.eternaGoto({ go: "#quote" });
+      },
+
+      human: function (host, id, ctx) {
+        if (window.eternaIndustry) window.eternaIndustry.close();
+        window.setTimeout(function () {
+          if (window.eternaWays) window.eternaWays.open();
+          else if (window.eternaGoto) window.eternaGoto({ go: "#contact", need: id });
+        }, reduced ? 0 : 380);
+      },
+    };
+
+    /* The public entry point: the stage and the assistant both use it, so
+       an action behaves identically wherever it is pressed. */
+    window.eternaAct = function (kind, id, host, ctx) {
+      var fn = KIND[kind];
+      if (!fn) return;
+      host = host || document.getElementById("ind-do");
+      if (!host && (kind === "quote" || kind === "human")) { fn(null, id, ctx); return; }
+      if (!host) return;
+      track("live_action", kind + "-" + id);
+      fn(host, id, ctx || {});
+    };
+    window.eternaActReset = paintActions;
+
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-live-act]");
+      if (!b) return;
+      e.preventDefault();
+      var host = b.closest("[data-live-acts]") || b.closest(".lv-host") || document.getElementById("ind-do");
+      window.eternaAct(b.getAttribute("data-live-act"), b.getAttribute("data-live-co"), host);
+    });
+  })();
+
+  /* --- three ways in -------------------------------------------------
+     "Start a conversation" does not drop anyone straight into a form. It
+     asks how they would rather begin: a call, the assistant, or the
+     enquiry. One press each, no dead ends. */
+  (function () {
+    var ways = $("#ways");
+    if (!ways) return;
+    var back = null;
+
+    function open(from) {
+      back = from || document.activeElement;
+      ways.hidden = false;
+      ways.classList.add("is-open");
+      window.requestAnimationFrame(function () {
+        ways.classList.add("is-in");
+        var first = ways.querySelector(".way");
+        if (first) first.focus({ preventScroll: true });
+      });
+      track("cta_click", "ways_open");
+    }
+    function close() {
+      if (!ways.classList.contains("is-open")) return;
+      ways.classList.remove("is-in");
+      window.setTimeout(function () {
+        ways.classList.remove("is-open");
+        ways.hidden = true;
+      }, reduced ? 0 : 320);
+      if (back && document.contains(back)) back.focus({ preventScroll: true });
+      back = null;
+    }
+
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest("[data-ways]");
+      if (!t) return;
+      e.preventDefault();
+      track("cta_click", t.getAttribute("data-cta") || "ways");
+      open(t);
+    });
+    ways.addEventListener("click", function (e) {
+      if (e.target.closest("[data-ways-close]")) { e.preventDefault(); close(); return; }
+      var w = e.target.closest("[data-way]");
+      if (!w) return;
+      var pick = w.getAttribute("data-way");
+      track("cta_click", "way-" + pick);
+      close();
+      if (pick === "ai") {
+        e.preventDefault();
+        var chatBtn = $("#chat-open");
+        if (chatBtn) window.setTimeout(function () { chatBtn.click(); }, 60);
+      } else if (pick === "contact") {
+        e.preventDefault();
+        window.setTimeout(function () { window.eternaGoto({ go: "#contact" }); }, 60);
+      }
+      /* "partner" is a real tel: link — let the browser dial. */
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && ways.classList.contains("is-open")) close();
+    });
+    document.addEventListener("focusin", function (e) {
+      if (!ways.classList.contains("is-open") || !back) return;
+      if (!ways.contains(e.target)) {
+        var p = ways.querySelector(".ways__panel");
+        if (p) { var f = p.querySelector(".way"); if (f) f.focus({ preventScroll: true }); }
+      }
+    });
+    window.eternaWays = { open: open, close: close };
+  })();
+
+  /* --- the matcher --------------------------------------------------
+     Describe what you need in your own words and it names the company,
+     says in a sentence why it read it that way, and hands you a way
+     straight in. Deterministic — it shows its working rather than
+     pretending to think — with the assistant one press away when the
+     words are not enough. */
+  var cForm = $("#need-form"), cInput = $("#need-input"), cResult = $("#need-result");
+
+  var STOP = (" a an and are as at be by can do does for from get got have how i im i'm in is it its me my need needs "
+    + "of on or our please so some that the their them there they this to us want wants we what when where which "
+    + "who will with would you your ").split(" ");
+
+  function words(text) {
+    return (" " + String(text).toLowerCase().replace(/[^a-z0-9\s]/g, " ") + " ")
+      .split(/\s+/).filter(function (w) { return w.length > 2 && STOP.indexOf(w) === -1; });
   }
+
+  /* Scoring, in plain terms: a keyword the company owns is the strongest
+     signal; the sectors it serves and what it can do come next; the
+     problems it is normally called about count too, because that is how
+     people actually describe a need. The winner has to explain itself, so
+     every hit is kept and labelled. */
+  function route(text) {
+    var t = " " + String(text).toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ") + " ";
+    var ws = words(text);
+    var ranked = DATA.companies.map(function (c) {
+      var kw = (c.keywords || []).filter(function (k) { return t.indexOf(" " + k) > -1; });
+      var serves = (c.serves || []).filter(function (x) { return t.indexOf(" " + x.toLowerCase()) > -1; });
+      var caps = (c.capabilities || []).filter(function (x) {
+        return words(x).some(function (w) { return ws.indexOf(w) > -1; });
+      });
+      /* Which of its stated problems reads most like what was typed. */
+      var best = null, bestOverlap = 0;
+      (c.problems || []).forEach(function (pr) {
+        var o = words(pr.p).filter(function (w) { return ws.indexOf(w) > -1; }).length;
+        if (o > bestOverlap) { bestOverlap = o; best = pr; }
+      });
+      var score = kw.length * 3 + serves.length * 2 + caps.length * 2 + bestOverlap;
+      return { c: c, score: score, kw: kw, serves: serves, caps: caps, problem: bestOverlap >= 2 ? best : null };
+    }).sort(function (a, b) { return b.score - a.score; });
+
+    var top = ranked[0];
+    if (!top || top.score < 2) return { company: null };
+    var second = ranked[1] && ranked[1].score >= 2 && ranked[1].score >= top.score - 1 ? ranked[1].c : null;
+    return {
+      company: top.c, score: top.score, problem: top.problem, second: second,
+      hits: top.kw.concat(top.serves.map(function (x) { return x.toLowerCase(); })).slice(0, 4),
+      caps: top.caps.slice(0, 2)
+    };
+  }
+
+  /* The explanation. Not "matched on 3 keywords" — a sentence that says
+     what was read out of the request and why it lands where it does. */
+  function reasoning(r) {
+    var c = r.company, bits = [];
+    if (r.hits.length) {
+      bits.push("You mentioned " + r.hits.map(function (h) { return "“" + esc(h) + "”"; })
+        .join(r.hits.length === 2 ? " and " : ", ") + ".");
+    } else {
+      bits.push("Reading what you wrote, this is the part of the group it belongs to.");
+    }
+    bits.push("That is " + esc(c.name) + "’s work — " +
+      esc(c.short.charAt(0).toLowerCase() + c.short.slice(1)) +
+      (r.caps.length ? ", covering " + r.caps.map(esc).join(" and ") : "") + ".");
+    if (r.problem) bits.push("It is close to something we are asked often: “" + esc(r.problem.p) +
+      "” — " + esc(r.problem.s.charAt(0).toLowerCase() + r.problem.s.slice(1)));
+    if (r.second) bits.push("If it also involves " +
+      esc(r.second.short.charAt(0).toLowerCase() + r.second.short.slice(1)) +
+      ", the same contact covers both.");
+    return bits.join(" ");
+  }
+
   function showResult(text) {
     if (!cResult) return;
     var r = route(text);
     cResult.hidden = false;
     if (!r.company) {
       cResult.innerHTML =
-        '<p class="result__why">No clear match</p>' +
-        '<p class="result__name">Send it to the group</p>' +
-        '<p class="result__body">We could not place that from the words alone, which is fine — describe it to us and we will route it to the right company.</p>' +
+        '<p class="result__why">Not placed from the words alone</p>' +
+        '<p class="result__name">Say it to us instead</p>' +
+        '<p class="result__read">We could not tell from that which of the five it sits with, and guessing would ' +
+          'waste your time. Ask the assistant — it will keep going until it knows — or send it to the ' +
+          'group and a person will route it.</p>' +
         '<div class="result__cta">' +
-          '<a class="btn btn--primary" href="#contact" data-cta="concierge-unmatched">Tell us what you need</a>' +
-          '<button class="btn btn--ghost" type="button" data-ask="' + text.replace(/"/g, "&quot;") + '">Ask the assistant</button>' +
+          '<button class="btn btn--primary" type="button" data-ask="' + attr(text) + '" ' +
+            'data-cta="concierge-unmatched-ai">Ask the assistant' + ARROW + '</button>' +
+          '<a class="btn btn--ghost" href="#contact" data-cta="concierge-unmatched">Tell us what you need</a>' +
         '</div>';
     } else {
       var c = r.company;
+      if (c.accent) {
+        cResult.style.setProperty("--accent", c.accent);
+        cResult.style.setProperty("--accent-text", c.accentText || c.accent);
+      }
+      /* If the request already contains facts — a route, a tonnage, a
+         schedule — carry them through, so pressing on lands the visitor on
+         the one question they have not answered. Same reading the
+         assistant does, so the page and the conversation never disagree. */
+      var read = window.EternaConcierge && window.EternaConcierge.read
+        ? window.EternaConcierge.read(text) : null;
+      var seed = read && read.company === c.id ? read.seed : null;
+      var known = seed ? Object.keys(seed).length : 0;
       cResult.innerHTML =
-        '<p class="result__why">Matched on <b>' + r.hits.join("</b>, <b>") + '</b></p>' +
-        '<p class="result__name">' + c.name + '</p>' +
-        '<p class="result__body">' + c.outcome + '</p>' +
+        '<p class="result__why">This belongs to</p>' +
+        '<p class="result__name">' + esc(c.name) + '</p>' +
+        '<p class="result__body">' + esc(c.outcome) + '</p>' +
+        '<p class="result__read">' + reasoning(r) +
+          (known ? ' I have already taken ' + (known === 1 ? "one detail" : known + " details")
+            + ' out of that, so you can carry on rather than start again.' : '') + '</p>' +
         '<div class="result__cta">' +
-          '<a class="btn btn--primary" href="#contact" data-cta="concierge-' + c.id + '" data-need="' + c.id + '">Start with ' + c.name + '</a>' +
-          '<a class="btn btn--ghost" href="#ecosystem" data-cta="concierge-explore">See how it fits the group</a>' +
-          '<button class="btn btn--ghost" type="button" data-ask="' + text.replace(/"/g, "&quot;") + '">Ask the assistant</button>' +
+          '<button class="btn btn--primary" type="button" data-industry="' + esc(c.id) + '" ' +
+            (known ? 'data-flow-seed="' + attr(JSON.stringify(seed)) + '" ' : '') +
+            'data-cta="concierge-open-' + esc(c.id) + '">' +
+            (known ? 'Carry on inside ' + esc(c.name.split(" ")[0]) : 'Go inside ' + esc(c.name.split(" ")[0])) +
+            ARROW + '</button>' +
+          '<a class="btn btn--ghost" href="#contact" data-cta="concierge-' + esc(c.id) + '" ' +
+            'data-need="' + esc(c.id) + '">Start with ' + esc(c.name) + '</a>' +
+          '<button class="btn btn--ghost" type="button" data-ask="' + attr(text) + '">Ask the assistant</button>' +
         '</div>';
     }
     track("need_submitted", r.company ? r.company.id : "unmatched");
@@ -2563,10 +4110,10 @@ h3{font-size:var(--t-md);line-height:1.24}
 
     var busy = false;
     var OPENERS = [
-      { label: "Explore our companies", go: "#ecosystem" },
-      { label: "I'm looking for logistics", say: "I need logistics support" },
-      { label: "Request a quote", quote: "" },
-      { label: "How you work", go: "#approach" },
+      { label: "Move 20 tonnes to Nairobi", say: "I need to transport 20 tonnes of goods from Dar es Salaam to Nairobi" },
+      { label: "Clear a shipment at the port", say: "I need to clear a shipment at the port" },
+      { label: "Book office cleaning every Monday", say: "I want to book office cleaning every Monday" },
+      { label: "See the whole group", go: "#ecosystem" },
       { label: "Speak with the right team", go: "#contact" },
     ];
 
@@ -2644,16 +4191,73 @@ h3{font-size:var(--t-md);line-height:1.24}
         var out = res[0];
         typing(false);
         bubble("bot", out.text);
+        paintUi(out.ui);
         actions(out.actions && out.actions.length ? out.actions : OPENERS);
         lock(false);
         input.focus();
       });
     }
 
+    /* --- the assistant builds interface, not paragraphs ---------------
+       A reply can carry instructions for what to put on the screen: the
+       business it matched and why, that business's actions as pressable
+       cards, its live view, or the request itself already part-filled.
+       Same components as inside the business, so nothing has to be
+       learned twice. */
+    function uiBlock(cls) {
+      var d = document.createElement("div");
+      d.className = "msg-ui " + (cls || "");
+      log.appendChild(d);
+      return d;
+    }
+    function paintUi(list) {
+      if (!list || !list.length || !window.EternaLive) return;
+      var L = window.EternaLive;
+      list.forEach(function (u) {
+        var c = (window.ETERNA_DATA.companies || []).filter(function (x) { return x.id === u.company; })[0];
+        if (u.company && !c) return;
+
+        if (u.type === "match") {
+          var m = uiBlock("msg-match");
+          m.style.setProperty("--accent", c.accent);
+          m.style.setProperty("--accent-text", c.accentText || c.accent);
+          m.innerHTML =
+            '<p class="msg-match__k">Match found</p>' +
+            '<p class="msg-match__n"></p>' +
+            '<p class="msg-match__w"></p>' +
+            '<button class="msg-match__go" type="button">Go inside ' + esc(c.name.split(" ")[0]) + ' →</button>';
+          m.querySelector(".msg-match__n").textContent = c.name;
+          m.querySelector(".msg-match__w").textContent = u.why || "";
+          m.querySelector(".msg-match__go").addEventListener("click", function () {
+            closePanel();
+            window.eternaGoto({ industry: c.id });
+          });
+
+        } else if (u.type === "actions") {
+          var a = uiBlock("lv-host");
+          a.setAttribute("data-live-acts", c.id);
+          var rail = L.actions(c.id);
+          if (rail) a.appendChild(rail);
+
+        } else if (u.type === "live") {
+          var v = uiBlock();
+          var card = L.card(c.id);
+          if (card) v.appendChild(card);
+
+        } else if (u.type === "flow") {
+          var f = uiBlock("lv-host");
+          f.setAttribute("data-live-acts", c.id);
+          window.eternaAct("flow", c.id, f, { seed: u.seed });
+        }
+      });
+      toBottom();
+    }
+
     function greet() {
       if (log.children.length) return;
-      bubble("bot", "Welcome to Eterna Holdings. I'm the concierge — I can explain the group, point you to the "
-        + "right company, or start a quotation. What are you trying to get done?");
+      bubble("bot", "Welcome to Eterna Holdings. Tell me what you are trying to get done and I will work out "
+        + "which of the five companies it belongs to, open it here, and take you through it — a shipment, a "
+        + "trade, a campaign, a property or a clean. What do you need?");
       actions(OPENERS);
     }
     function openPanel(seed) {
@@ -2700,6 +4304,22 @@ h3{font-size:var(--t-md);line-height:1.24}
   window.eternaGoto = function (opts) {
     opts = opts || {};
     if (opts.quote && window.EternaQuote) { window.EternaQuote.open(opts.quote); return; }
+    if (opts.industry && window.eternaIndustry) {
+      if (opts.flowSeed) window.eternaIndustry.queueFlow(opts.flowSeed);
+      /* Preselect the node so the diagram agrees with where you land, then
+         open that company over the page. No scrolling, no hunting. */
+      var n = document.querySelector('.eco__node[data-id="' + opts.industry + '"]');
+      if (!n) { window.eternaIndustry.open(opts.industry, null); return; }
+      /* Put the tree where it can be seen, then press the node for real, so
+         an intent from the assistant enters through exactly the same door —
+         and leaves you looking at the group when you come back out. */
+      var eco2 = document.getElementById("ecosystem");
+      if (eco2) eco2.scrollIntoView({ behavior: "auto", block: "center" });
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { n.click(); });
+      });
+      return;
+    }
     var target = document.querySelector(opts.go || "#contact");
     if (opts.select) {
       var node = document.querySelector('.eco__node[data-id="' + opts.select + '"]');
@@ -2715,7 +4335,8 @@ h3{font-size:var(--t-md);line-height:1.24}
   var yr = $("#yr");
   if (yr) yr.textContent = String(new Date().getFullYear());
 })();
+
 </script>
 
-
-</body></html>
+</body>
+</html>
